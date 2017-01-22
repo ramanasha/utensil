@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getItemName } from '../../selectors';
 
-class OrderItem extends React.Component {
+class OrderItem extends Component {
     render() {
         const { name, quantity, data } = this.props;
         const pizzaSize = data ? data.getIn(['pizza', 'size']) : null;
@@ -28,7 +28,7 @@ class OrderItem extends React.Component {
     }
 }
 
-class PizzaDetails extends React.Component {
+class PizzaDetails extends Component {
     render() {
         const { toppings, sauce, cheese, size } = this.props;
 
@@ -56,7 +56,7 @@ class PizzaDetails extends React.Component {
     }
 }
 
-class OrderItemData extends React.Component {
+class OrderItemData extends Component {
     render() {
         const { data } = this.props;
         return (

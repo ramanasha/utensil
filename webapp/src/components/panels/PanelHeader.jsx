@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class PanelHeader extends React.Component {
+export default class PanelHeader extends Component {
     render() {
         return (
             <div className="panel-header">{this.props.name}</div>

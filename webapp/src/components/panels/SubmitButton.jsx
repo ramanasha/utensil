@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class SubmitButton extends React.Component {
+export default class SubmitButton extends Component {
     render() {
         const {
             text, data,

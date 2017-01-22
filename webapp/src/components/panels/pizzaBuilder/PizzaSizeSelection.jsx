@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setPizzaSize } from '../../../actions';
 
-class PizzaSize extends React.Component {
+class PizzaSize extends Component {
     render() {
         const { size, selected, onClick } = this.props;
         return (
@@ -30,7 +30,7 @@ const LivePizzaSize = connect(
     mapDispatchToProps
 )(PizzaSize)
 
-export default class PizzaSizeSelection extends React.Component {
+export default class PizzaSizeSelection extends Component {
     render() {
         return (
             <div className="pizza-size">

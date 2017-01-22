@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateUsernameField } from '../../../actions';
 
-class UsernameField extends React.Component {
+class UsernameField extends Component {
     render() {
         const { value, onChange } = this.props;
 

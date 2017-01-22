@@ -1,13 +1,13 @@
 import '../../../styles/panels/my-order-summary.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
 import MyOrderPreview from './MyOrderPreview';
 import { getGroupRestaurant } from '../../../selectors';
 
-class MyOrderSummary extends React.Component {
+class MyOrderSummary extends Component {
     render() {
         const { orders } = this.props;
 

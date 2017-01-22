@@ -6,6 +6,7 @@
     flex-grow: 1;
     margin-top: 6em;
     position: relative;
+    align-items: stretch;
 
     .menu-header {
         padding: 0.4em;
@@ -16,6 +17,16 @@
             text-align: center;
             color: $title-color;
             font-weight: bold;
+        }
+    }
+
+    .toolbar {
+        padding: 0.5em 5em;
+        margin: 0 0.4em;
+        border-top: 1px solid $title-color;
+
+        .button {
+            flex: 1 0 auto;
         }
     }
 

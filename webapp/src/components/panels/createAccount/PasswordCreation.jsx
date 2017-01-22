@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updatePasswordField, updateConfirmPasswordField } from '../../../actions';
 
-class PasswordCreation extends React.Component {
+class PasswordCreation extends Component {
     render() {
         const {
             passwordValue, confirmPasswordValue,

@@ -1,6 +1,6 @@
 import '../../../styles/panels/login-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { push } from 'react-router-redux';
@@ -12,7 +12,7 @@ import LoginButton from './LoginButton';
 import Spinner from '../Spinner';
 import { goToCreateAccount } from '../../../actions';
 
-class LoginPanel extends React.Component {
+class LoginPanel extends Component {
     componentDidMount() {
         const { loggedIn, exitLogin } = this.props;
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changeCheese } from '../../../actions';
 
-class CheeseSelection extends React.Component {
+class CheeseSelection extends Component {
     constructor(props) {
         super(props);
         this.state = { expanded: false };

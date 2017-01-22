@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import OrderItemQuantity from './OrderItemQuantity';
@@ -10,7 +10,7 @@ import {
 } from '../../../actions';
 import { formatOrderItemData } from '../../../helpers';
 
-class OrderItem extends React.Component {
+class OrderItem extends Component {
     render() {
         const {
             name, quantity, price, data,

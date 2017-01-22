@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
 import { addItemToOrder, closePizzaBuilder } from '../../../actions';
 
-class AddPizzaButton extends React.Component {
+class AddPizzaButton extends Component {
     render() {
         const { itemId, data, submit } = this.props;
 
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
             pizza: Map({
                 cheese: cheese != 'Normal Cheese' ? cheese : undefined,
                 sauce: sauce != builder.get('defaultSauce') && size =='whole' ? sauce : undefined,
-                toppings: size == 'whole' ? toppings : toppings.keySeq().toList(),
+                toppings: size == 'whole' ? toppings : toppings.keySeq().toSet(),
                 size: size
             })
         })

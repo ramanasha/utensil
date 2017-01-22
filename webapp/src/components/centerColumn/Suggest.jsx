@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import CenterColumn from './CenterColumn';
 import SuggestOrderPanel from '../panels/suggestOrder/SuggestOrderPanel';
 
-export default class Suggest extends React.Component {
+export default class Suggest extends Component {
     render() {
         const { params } = this.props;
 

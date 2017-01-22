@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CenterColumn from './CenterColumn';
@@ -9,25 +9,33 @@ import NewGroupOptionsPanel from '../panels/orderOptions/NewGroupOptionsPanel';
 import NewOrderConfirmPanel from '../panels/orderOptions/NewOrderConfirmPanel';
 import { getGroupRestaurantId } from '../../selectors';
 
-class Order extends React.Component {
+class Order extends Component {
     render() {
-        const { mode, stage, menuId, params } = this.props;
+        const { mode, stage, menuId, params, children } = this.props;
 
-        return (
-            <CenterColumn>
-                {stage == 'choose' ?
-                    <MenuPanel id={menuId} viewOnly={false}/>
-                    : null}
-                {stage != 'pizza' ?
-                    <CurrentOrderPanel/>
-                    : <PizzaBuilderPanel id={menuId}/>}
-                {stage == 'confirm' ?
-                    (mode == 'join' ?
-                        <NewOrderConfirmPanel id={params.id}/>
-                        : <NewGroupOptionsPanel mode={mode} id={params.id}/>)
-                    : null}
-            </CenterColumn>
-        );
+        if (!children) {
+            return (
+                <CenterColumn>
+                    {stage == 'choose' ?
+                        <MenuPanel id={menuId} viewOnly={false}/>
+                        : null}
+                    {stage != 'pizza' ?
+                        <CurrentOrderPanel/>
+                        : <PizzaBuilderPanel id={menuId}/>}
+                    {stage == 'confirm' ?
+                        (mode == 'join' ?
+                            <NewOrderConfirmPanel id={parseInt(params.id)}/>
+                            : <NewGroupOptionsPanel mode={mode} id={parseInt(params.id)}/>)
+                        : null}
+                </CenterColumn>
+            );
+        } else {
+            return (
+                <CenterColumn>
+                    {React.cloneElement(children, { id: parseInt(params.id) })}
+                </CenterColumn>
+            );
+        }
     }
 }
 

@@ -26,7 +26,17 @@ const startOrder = (state, action, orderType) => {
                    .set('restaurantId', action.restaurantId);
 };
 
-const currentOrder = (state = Map({ items: List(), stage: 'choose' }), action) => {
+const initialState = Map({
+    items: List(),
+    stage: 'choose',
+    options: Map({
+        'type': 'delivery',
+        'duration': 30,
+        'overhead': 0
+    })
+});
+
+const currentOrder = (state = initialState, action) => {
     switch (action.type) {
         case START_ORDER:
             return startOrder(state, action, 'start').delete('groupId');
@@ -40,7 +50,13 @@ const currentOrder = (state = Map({ items: List(), stage: 'choose' }), action) =
         case ADD_ITEM_TO_ORDER:
             let items = state.get('items');
             let [index, match] = items.findEntry(
-                item => item.get('id') == action.id && item.get('data').equals(Map(action.data)),
+                item => {
+                    if (item.get('data')) {
+                        return item.get('id') == action.id && item.get('data').equals(Map(action.data));
+                    } else {
+                        return item.get('id') == action.id;
+                    }
+                },
                 null,
                 [null, null]
             );

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ToppingSideButton from './ToppingSideButton';
 import { toggleTopping } from '../../../actions';
 
-class ToppingOption extends React.Component {
+class ToppingOption extends Component {
     render() {
         const {
             name, selected, side, whole,

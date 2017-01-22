@@ -1,6 +1,6 @@
 import '../../../styles/panels/current-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
@@ -8,7 +8,7 @@ import OrderItem from './OrderItem';
 import { continueOrder, goBackToMenu } from '../../../actions';
 import { getItemPrice } from '../../../selectors';
 
-class CurrentOrderPanel extends React.Component {
+class CurrentOrderPanel extends Component {
     render() {
         const {
             orderStarted, items, stage, totalCost,

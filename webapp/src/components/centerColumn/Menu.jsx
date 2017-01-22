@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CenterColumn from './CenterColumn';
 import MenuPanel from '../panels/menu/MenuPanel';
 
-export default class Menu extends React.Component {
+export default class Menu extends Component {
     render() {
         const { params } = this.props;
 

@@ -16,13 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
         },
         order: {
             userId: state.currentUser.get('userId'),
-            orderItems: state.centerColumn.currentOrder.get('items')
-                .map((item, itemId) => ({
-                    itemId,
-                    quantity: item.get('quantity'),
-                    data: item.get('data')
-                }))
-                .toList().toJS()
+            orderItems: state.centerColumn.currentOrder.get('items').toJS()
         }
     }
 });

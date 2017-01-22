@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 
-export default class OrderTimer extends React.Component {
+export default class OrderTimer extends Component {
     constructor(props) {
         super(props);
         this.state = {

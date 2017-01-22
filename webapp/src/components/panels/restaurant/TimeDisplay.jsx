@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 
-export default class TimeDisplay extends React.Component {
+export default class TimeDisplay extends Component {
     render() {
         const { open, openTime, closeTime } = this.props;
 

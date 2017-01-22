@@ -1,6 +1,6 @@
 import '../../../styles/panels/new-order-confirm-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
@@ -8,7 +8,7 @@ import SubmitNewOrder from './SubmitNewOrder';
 import Spinner from '../Spinner';
 import { getItemPrice, getOverheadPercentage } from '../../../selectors';
 
-class NewOrderConfirmPanel extends React.Component {
+class NewOrderConfirmPanel extends Component {
     render() {
         const { loading, orderTotal, id } = this.props;
 

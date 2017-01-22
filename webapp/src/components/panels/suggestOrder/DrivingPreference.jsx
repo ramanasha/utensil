@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class DrivingPreference extends React.Component {
+export default class DrivingPreference extends Component {
     render() {
         const { checked, changeValue } = this.props;
 

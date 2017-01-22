@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import LeftColumn from './LeftColumn';
@@ -11,7 +11,7 @@ import {
 } from '../actions';
 import { DISPLAY_DEFAULT, DISPLAY_MENU_VIEWING } from '../constants';
 
-class App extends React.Component {
+class App extends Component {
     componentDidMount() {
         const {
             location, loggedIn,

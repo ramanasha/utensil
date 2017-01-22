@@ -1,6 +1,6 @@
 import '../../../styles/panels/new-group-options-panel';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
@@ -11,7 +11,7 @@ import SubmitNewGroup from './SubmitNewGroup';
 import SubmitActivatedGroup from './SubmitActivatedGroup';
 import Spinner from '../Spinner';
 
-class NewGroupOptionsPanel extends React.Component {
+class NewGroupOptionsPanel extends Component {
     render() {
         const { loading, mode, id } = this.props;
 

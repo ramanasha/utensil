@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import ToppingOption from './ToppingOption';
 
-export default class ToppingsSection extends React.Component {
+export default class ToppingsSection extends Component {
     render() {
         const { name, toppings } = this.props;
         return (

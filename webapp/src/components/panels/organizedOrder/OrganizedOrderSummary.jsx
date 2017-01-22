@@ -1,6 +1,6 @@
 import '../../../styles/panels/organized-order-summary.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
@@ -8,7 +8,7 @@ import OrganizedOrderPreview from './OrganizedOrderPreview';
 import { showGroupDetails } from '../../../actions';
 import { getRestaurantName } from '../../../selectors';
 
-class OrganizedOrderSummary extends React.Component {
+class OrganizedOrderSummary extends Component {
     render() {
         const { groups, viewDetails } = this.props;
         return (

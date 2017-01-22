@@ -9,6 +9,7 @@ import CreateAccount from './components/centerColumn/CreateAccount';
 import SplitwiseAuthenticate from './components/centerColumn/SplitwiseAuthenticate';
 import Menu from './components/centerColumn/Menu';
 import Order from './components/centerColumn/Order';
+import OutingPanel from './components/panels/orderOptions/OutingPanel';
 import Suggest from './components/centerColumn/Suggest';
 import Vote from './components/centerColumn/Vote';
 import GroupDetails from './components/centerColumn/GroupDetails';
@@ -24,7 +25,9 @@ const routes = (
         </Route>
         <Route path="menu/:id" component={Menu}/>
         <Route path="join/:id" component={Order}/>
-        <Route path="start/:id" component={Order}/>
+        <Route path="start/:id" component={Order}>
+            <Route path="outing" component={OutingPanel}/>
+        </Route>
         <Route path="activate/:id" component={Order}/>
         <Route path="suggest/:id" component={Suggest}/>
         <Route path="vote/:id" component={Vote}/>

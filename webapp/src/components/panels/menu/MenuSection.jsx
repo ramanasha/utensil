@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import MenuItem from './MenuItem';
 
-export default class MenuSection extends React.Component {
+export default class MenuSection extends Component {
     render() {
         const { name, items, viewOnly } = this.props;
 

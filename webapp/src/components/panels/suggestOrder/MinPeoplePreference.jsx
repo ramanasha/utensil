@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setMinPeople } from '../../../actions';
 
-class MinPeoplePreference extends React.Component {
+class MinPeoplePreference extends Component {
     render() {
         const { value, changeValue } = this.props;
 

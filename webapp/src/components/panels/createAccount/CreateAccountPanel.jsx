@@ -1,6 +1,6 @@
 import '../../../styles/panels/login-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -11,7 +11,7 @@ import CreateAccountButton from './CreateAccountButton';
 import Spinner from '../Spinner';
 import { goToLogin } from '../../../actions';
 
-class CreateAccountPanel extends React.Component {
+class CreateAccountPanel extends Component {
     render() {
         const {
             loading, error,

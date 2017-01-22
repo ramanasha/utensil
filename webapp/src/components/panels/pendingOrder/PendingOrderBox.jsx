@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import moment from 'moment';
 
 import { activateOrder } from '../../../actions';
 
-class PendingOrderBox extends React.Component {
+class PendingOrderBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -61,7 +61,7 @@ class PendingOrderBox extends React.Component {
 }
 
 
-class PendingOrderToolbar extends React.Component {
+class PendingOrderToolbar extends Component {
     render() {
         const {
             id, hasVoted,

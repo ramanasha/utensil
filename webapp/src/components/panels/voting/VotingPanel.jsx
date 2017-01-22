@@ -1,6 +1,6 @@
 import '../../../styles/panels/suggest-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CloseButton from '../CloseButton';
@@ -11,7 +11,7 @@ import SubmitVote from './SubmitVote';
 import { setDrivingPreference, setWaitTime } from '../../../actions';
 import { getGroupRestaurant } from '../../../selectors';
 
-class VotingPanel extends React.Component {
+class VotingPanel extends Component {
     render() {
     	const {
     		id, name, drivingValue, waitTimeValue,

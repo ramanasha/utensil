@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Link from '../Link';
@@ -6,7 +6,7 @@ import TimeDisplay from './TimeDisplay';
 import RestaurantToolbar from './RestaurantToolbar';
 import { startOrder, openSuggestOrder } from '../../../actions';
 
-class RestaurantBox extends React.Component {
+class RestaurantBox extends Component {
     render() {
         const {
             loggedIn, restaurantId, name, location, url, open, openTime, closeTime,

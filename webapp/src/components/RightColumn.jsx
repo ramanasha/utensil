@@ -1,12 +1,12 @@
 import '../styles/column.scss'
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import RestaurantPanel from './panels/restaurant/RestaurantPanel';
 import CredentialsPanel from './panels/credentials/CredentialsPanel';
 
-class RightColumn extends React.Component {
+class RightColumn extends Component {
     render() {
         const { loggedIn } = this.props;
 

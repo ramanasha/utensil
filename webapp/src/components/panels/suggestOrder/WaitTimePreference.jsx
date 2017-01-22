@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class WaitTimePreference extends React.Component {
+export default class WaitTimePreference extends Component {
     render() {
         const { value, changeValue } = this.props;
 

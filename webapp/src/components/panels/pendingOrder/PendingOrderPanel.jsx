@@ -1,13 +1,13 @@
 import '../../../styles/panels/pending-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
 import PendingOrderBox from './PendingOrderBox';
 import { getRestaurantName } from '../../../selectors';
 
-class PendingOrderPanel extends React.Component {
+class PendingOrderPanel extends Component {
     render() {
         const { groups } = this.props;
 

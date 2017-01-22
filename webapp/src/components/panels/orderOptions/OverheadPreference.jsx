@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setOverhead } from '../../../actions';
 
-class OverheadPreference extends React.Component {
+class OverheadPreference extends Component {
     render() {
         const { value, changeValue } = this.props;
 

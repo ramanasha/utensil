@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import OrderTimer from '../OrderTimer';
 
-export default class OrganizedOrderPreview extends React.Component {
+export default class OrganizedOrderPreview extends Component {
     render() {
         const {
             id, restaurantName, type, timeStarted, duration,

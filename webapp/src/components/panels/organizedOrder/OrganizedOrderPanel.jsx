@@ -1,6 +1,6 @@
 import '../../../styles/panels/organized-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Map, List } from 'immutable';
 import moment from 'moment';
@@ -11,7 +11,7 @@ import IndividualOrder from './IndividualOrder';
 import { getRestaurantName } from '../../../selectors';
 import { markGroupOrdered, markGroupComplete } from '../../../actions';
 
-class OrganizedOrderPanel extends React.Component {
+class OrganizedOrderPanel extends Component {
     render() {
         const {
             groupId, orders, restaurantName, type, phase, timeStarted, duration, ended,

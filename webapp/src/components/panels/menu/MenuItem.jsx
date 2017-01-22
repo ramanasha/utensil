@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addItemToOrder, openPizzaBuilder } from '../../../actions';
 import { DISPLAY_MENU_ORDERING, DISPLAY_MENU_WITH_ORDER } from '../../../constants';
 
-class MenuItem extends React.Component {
+class MenuItem extends Component {
     render() {
         const {
             price, name, description, viewOnly, itemId, data,

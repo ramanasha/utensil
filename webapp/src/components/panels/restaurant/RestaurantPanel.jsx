@@ -1,11 +1,11 @@
 import '../../../styles/panels/restaurant-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PanelHeader from '../PanelHeader';
 import RestaurantBox from './RestaurantBox';
 
-class RestaurantPanel extends React.Component {
+class RestaurantPanel extends Component {
     render() {
         const {
             restaurants,

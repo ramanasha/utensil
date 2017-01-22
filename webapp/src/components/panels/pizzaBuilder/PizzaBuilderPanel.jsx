@@ -1,6 +1,6 @@
 import '../../../styles/panels/pizza-builder-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
@@ -15,7 +15,7 @@ import AddPizzaButton from './AddPizzaButton';
 import { closePizzaBuilder, setInitialSauce, setMaxToppings } from '../../../actions';
 import { pizzaAtCapacity } from '../../../helpers';
 
-class PizzaBuilderPanel extends React.Component {
+class PizzaBuilderPanel extends Component {
     componentDidMount() {
         const {
             sauces, maxToppings,

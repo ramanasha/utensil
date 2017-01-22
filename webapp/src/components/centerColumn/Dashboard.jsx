@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CenterColumn from './CenterColumn';
@@ -6,7 +6,7 @@ import Helper from '../Helper';
 import MyOrderSummary from '../panels/myOrder/MyOrderSummary';
 import OrganizedOrderSummary from '../panels/organizedOrder/OrganizedOrderSummary';
 
-class Dashboard extends React.Component {
+class Dashboard extends Component {
     render() {
         const { organizer, joinedOrders } = this.props;
 

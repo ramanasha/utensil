@@ -1,12 +1,12 @@
 import '../../../styles/panels/credentials-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PanelHeader from '../PanelHeader';
 import { logOut } from '../../../actions';
 
-class CredentialsPanel extends React.Component {
+class CredentialsPanel extends Component {
     render() {
         const {
             loggedIn, username,

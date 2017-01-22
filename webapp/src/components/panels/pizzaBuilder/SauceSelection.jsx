@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changeSauce } from '../../../actions';
 
-class SauceSelection extends React.Component {
+class SauceSelection extends Component {
     constructor(props) {
         super(props);
         this.state = { expanded: false };

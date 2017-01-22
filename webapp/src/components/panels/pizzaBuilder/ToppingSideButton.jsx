@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changeToppingSide } from '../../../actions';
 
-class ToppingSideButton extends React.Component {
+class ToppingSideButton extends Component {
     render() {
         const { selected, icon, changeSide } = this.props;
 

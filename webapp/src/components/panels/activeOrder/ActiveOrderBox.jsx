@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import OrderTimer from '../OrderTimer';
 import { joinOrder } from '../../../actions';
 
-class ActiveOrderBox extends React.Component {
+class ActiveOrderBox extends Component {
     render() {
         const {
             groupId, loggedIn, restaurantName, type, orders, timeStarted, durationMinutes,

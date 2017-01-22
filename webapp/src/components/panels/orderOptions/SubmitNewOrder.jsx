@@ -8,13 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
     data: {
         userId: state.currentUser.get('userId'),
         groupId: ownProps.id,
-        orderItems: state.centerColumn.currentOrder.get('items')
-            .map((item, itemId) => ({
-                itemId,
-                quantity: item.get('quantity'),
-                data: item.get('data')
-            }))
-            .toList().toJS()
+        orderItems: state.centerColumn.currentOrder.get('items').toJS()
     }
 });
 

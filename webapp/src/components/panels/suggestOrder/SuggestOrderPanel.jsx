@@ -1,6 +1,6 @@
 import '../../../styles/panels/suggest-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CloseButton from '../CloseButton';
@@ -13,7 +13,7 @@ import SubmitSuggestion from './SubmitSuggestion';
 import { getRestaurantName } from '../../../selectors';
 import { setDrivingPreference, setWaitTime } from '../../../actions';
 
-class SuggestOrderPanel extends React.Component {
+class SuggestOrderPanel extends Component {
     render() {
         const {
             id, name, askDriving, valid, drivingValue, waitTimeValue,

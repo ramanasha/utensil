@@ -1,6 +1,6 @@
 import '../../../styles/panels/active-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -8,7 +8,7 @@ import PanelHeader from '../PanelHeader';
 import ActiveOrderBox from './ActiveOrderBox';
 import { getRestaurantName } from '../../../selectors';
 
-class ActiveOrderPanel extends React.Component {
+class ActiveOrderPanel extends Component {
     render() {
         const { groups, anyPendingOrders, yourGroups } = this.props;
 

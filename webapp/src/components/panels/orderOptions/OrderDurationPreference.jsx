@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setOrderDuration } from '../../../actions';
 
-class OrderDurationPreference extends React.Component {
+class OrderDurationPreference extends Component {
     render() {
         const { value, changeValue } = this.props;
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import OrderItem from '../OrderItem';
 
-class IndividualOrder extends React.Component {
+class IndividualOrder extends Component {
     render() {
         const { username, isCurrentUser, orderItems } = this.props;
         return (

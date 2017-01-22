@@ -1,8 +1,8 @@
 import '../styles/helper.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class Helper extends React.Component {
+export default class Helper extends Component {
     render() {
         return (
             <div className="helper">
@@ -13,7 +13,7 @@ export default class Helper extends React.Component {
     }
 }
 
-class HelperText extends React.Component {
+class HelperText extends Component {
     render() {
         const { className, text } = this.props;
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class SideToppings extends React.Component {
+class SideToppings extends Component {
     render() {
         const { side, toppings } = this.props;
 

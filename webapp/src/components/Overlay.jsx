@@ -1,6 +1,6 @@
 import '../styles/overlay.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
@@ -18,7 +18,7 @@ const overlayStyles = {
     }
 }
 
-class Overlay extends React.Component {
+class Overlay extends Component {
     render() {
         const {
             centerFocus, loggedIn,

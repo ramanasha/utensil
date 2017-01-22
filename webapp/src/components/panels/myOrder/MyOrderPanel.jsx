@@ -1,6 +1,6 @@
 import '../../../styles/panels/my-order-panel.scss';
 
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'immutable';
 
@@ -8,7 +8,7 @@ import CloseButton from '../CloseButton';
 import OrderItem from '../OrderItem';
 import { getGroupRestaurant } from '../../../selectors';
 
-class MyOrderPanel extends React.Component {
+class MyOrderPanel extends Component {
     render() {
         const { restaurantName, orderItems } = this.props;
 
