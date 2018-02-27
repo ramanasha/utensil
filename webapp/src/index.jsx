@@ -19,5 +19,3 @@ render(
   </Provider>,
   container,
 );
-
-module.hot.accept();

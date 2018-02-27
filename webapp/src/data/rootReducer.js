@@ -6,6 +6,7 @@ import groups from './groups';
 import items from './items';
 import login from './login';
 import menus from './menus';
+import mobile from './mobile';
 import pizzaBuilder from './pizzaBuilder';
 import restaurants from './restaurants';
 import suggestedOrder from './suggestedOrder';
@@ -19,6 +20,7 @@ export default combineReducers({
   items,
   login,
   menus,
+  mobile,
   pizzaBuilder,
   restaurants,
   suggestedOrder,

@@ -4,21 +4,20 @@ import { connect } from 'react-redux';
 
 import { groupSelectors } from 'data/groups';
 
-import CenterColumn from '../ui/columns/CenterColumn';
 import Helper from '../ui/columns/CenterColumn/Helper';
 import MyOrderSummaryPanel from '../ui/panels/MyOrderSummaryPanel';
 import OrganizedGroupSummaryPanel from '../ui/panels/OrganizedGroupSummaryPanel';
 
 const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup }) => (
-  <CenterColumn>
+  <>
     {hasJoinedGroup ?
-      <MyOrderSummaryPanel />
-      : null}
+        <MyOrderSummaryPanel />
+        : null}
     <Helper />
     {hasOrganizedGroup ?
-      <OrganizedGroupSummaryPanel />
-      : null}
-  </CenterColumn>
+        <OrganizedGroupSummaryPanel />
+        : null},
+  </>
 );
 
 Dashboard.propTypes = {

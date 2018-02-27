@@ -7,7 +7,6 @@ import { parseId } from 'common/utils';
 import { currentOrderSelectors } from 'data/currentOrder';
 import { groupSelectors } from 'data/groups';
 
-import CenterColumn from '../ui/columns/CenterColumn';
 import MenuPanel from '../ui/panels/MenuPanel';
 import CurrentOrderPanel from '../ui/panels/CurrentOrderPanel';
 import PizzaBuilderPanel from '../ui/panels/PizzaBuilderPanel';
@@ -16,28 +15,22 @@ import NewOrderConfirmPanel from '../ui/panels/NewOrderConfirmPanel';
 
 const Order = ({ mode, stage, menuId, id }) => {
   switch (stage) {
-    case 'choose': return (
-      <CenterColumn>
-        <MenuPanel id={menuId} viewOnly={false} />
-        <CurrentOrderPanel />
-      </CenterColumn>
-    );
+    case 'choose': return [
+      <MenuPanel id={menuId} viewOnly={false} />,
+      <CurrentOrderPanel />
+    ];
 
-    case 'confirm': return (
-      <CenterColumn>
-        <CurrentOrderPanel />
-        {mode === 'join' ?
-          <NewOrderConfirmPanel id={id} />
-          :
-          <NewGroupOptionsPanel mode={mode} id={id} />
-        }
-      </CenterColumn>
-    );
+    case 'confirm': return [
+      <CurrentOrderPanel />,
+      (mode === 'join' ?
+        <NewOrderConfirmPanel id={id} />
+        :
+        <NewGroupOptionsPanel mode={mode} id={id} />
+      )
+    ];
 
     case 'pizza': return (
-      <CenterColumn>
-        <PizzaBuilderPanel id={menuId} />
-      </CenterColumn>
+      <PizzaBuilderPanel id={menuId} />
     );
 
     default: return null;

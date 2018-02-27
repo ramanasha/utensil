@@ -1,12 +1,9 @@
 import React from 'react';
 
-import CenterColumn from '../ui/columns/CenterColumn';
 import LoginPanel from '../ui/panels/LoginPanel';
 
 const Login = () => (
-  <CenterColumn>
-    <LoginPanel />
-  </CenterColumn>
+  <LoginPanel />
 );
 
 export default Login;

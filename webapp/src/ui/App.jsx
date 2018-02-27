@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
 
 import { loginActions } from 'data/login';
 import { groupActions } from 'data/groups';
@@ -8,8 +9,10 @@ import { restaurantActions } from 'data/restaurants';
 import { currentUserSelectors } from 'data/currentUser';
 
 import LeftColumn from './columns/LeftColumn';
+import CenterColumn from './columns/CenterColumn';
 import RightColumn from './columns/RightColumn';
 import Overlay from './Overlay';
+import NavBar from './mobile/NavBar';
 
 import './master.scss';
 
@@ -44,12 +47,29 @@ class App extends Component {
     const style = centerFocus ? { minWidth: '30em', padding: '0 15em' } : null;
 
     return (
-      <div style={style}>
-        <LeftColumn />
-        {children}
-        <RightColumn />
-        <Overlay centerFocus={centerFocus} />
-      </div>
+      <Responsive minWidth={1224}>
+        {matches => (
+          <div className='app' style={matches ? style : null}>
+            {!matches ?
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+              />
+              : null
+            }
+            <Responsive minWidth={1224}>
+              <LeftColumn />
+              <CenterColumn>{children}</CenterColumn>
+              <RightColumn />
+              <Overlay centerFocus={centerFocus} />
+            </Responsive>
+            <Responsive maxWidth={1223}>
+              <NavBar />
+              {children}
+            </Responsive>
+          </div>
+        )}
+      </Responsive>
     );
   }
 }

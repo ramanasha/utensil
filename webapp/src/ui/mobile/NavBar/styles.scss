@@ -1,0 +1,19 @@
+@import '~common/styles/colors';
+
+.mobile-navbar {
+  background-color: $panel-color;
+  display: flex;
+  justify-content: space-around;
+
+  .mobile-navbar-tab {
+    cursor: pointer;
+    flex: 1 0 auto;
+    font-weight: bold;
+    padding: 1em;
+    text-align: center;
+
+    &.selected {
+      border-bottom: 3px $title-color solid;
+    }
+  }
+}
