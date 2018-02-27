@@ -15,19 +15,23 @@ import NewOrderConfirmPanel from '../ui/panels/NewOrderConfirmPanel';
 
 const Order = ({ mode, stage, menuId, id }) => {
   switch (stage) {
-    case 'choose': return [
-      <MenuPanel id={menuId} viewOnly={false} />,
-      <CurrentOrderPanel />
-    ];
+    case 'choose': return (
+      <>
+        <MenuPanel id={menuId} viewOnly={false} />
+        <CurrentOrderPanel />
+      </>
+    );
 
-    case 'confirm': return [
-      <CurrentOrderPanel />,
-      (mode === 'join' ?
-        <NewOrderConfirmPanel id={id} />
-        :
-        <NewGroupOptionsPanel mode={mode} id={id} />
-      )
-    ];
+    case 'confirm': return (
+      <>
+        <CurrentOrderPanel />
+        {mode === 'join' ?
+          <NewOrderConfirmPanel id={id} />
+          :
+          <NewGroupOptionsPanel mode={mode} id={id} />
+        }
+      </>
+    );
 
     case 'pizza': return (
       <PizzaBuilderPanel id={menuId} />
