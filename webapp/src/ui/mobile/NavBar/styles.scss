@@ -4,6 +4,9 @@
   background-color: $panel-color;
   display: flex;
   justify-content: space-around;
+  border-top: .1em $border-color solid;
+  border-bottom: .1em $border-color solid;
+  box-shadow: 0 .1em .2em $panel-shadow-color;
 
   .mobile-navbar-tab {
     cursor: pointer;
