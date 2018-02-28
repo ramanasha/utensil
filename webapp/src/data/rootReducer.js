@@ -11,7 +11,7 @@ import pizzaBuilder from './pizzaBuilder';
 import restaurants from './restaurants';
 import suggestedOrder from './suggestedOrder';
 import users from './users';
-import routing from './routing';
+import router from './router';
 
 export default combineReducers({
   currentOrder,
@@ -25,5 +25,5 @@ export default combineReducers({
   restaurants,
   suggestedOrder,
   users,
-  routing,
+  router,
 });

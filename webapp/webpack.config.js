@@ -1,7 +1,7 @@
-const { resolve } = require("path");
+const { resolve } = require('path');
+const webpack = require('webpack');
 
 const BUILD_DIR = resolve(__dirname, 'dist');
-const APP_DIR = resolve(__dirname, 'src');
 
 module.exports = {
   mode: 'development',
@@ -9,32 +9,24 @@ module.exports = {
   output: {
     path: resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: { loader: 'babel-loader' },
       },
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.scss'],
@@ -46,11 +38,11 @@ module.exports = {
   devServer: {
     contentBase: BUILD_DIR,
     disableHostCheck: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8081',
-      },
-    },
+    proxy: { '/api': 'http://localhost:8081' },
     historyApiFallback: true,
   },
+  devtool: 'eval-source-map',
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+  ],
 };

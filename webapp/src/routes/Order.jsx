@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -16,21 +16,21 @@ import NewOrderConfirmPanel from '../ui/panels/NewOrderConfirmPanel';
 const Order = ({ mode, stage, menuId, id }) => {
   switch (stage) {
     case 'choose': return (
-      <>
+      <Fragment>
         <MenuPanel id={menuId} viewOnly={false} />
         <CurrentOrderPanel />
-      </>
+      </Fragment>
     );
 
     case 'confirm': return (
-      <>
+      <Fragment>
         <CurrentOrderPanel />
         {mode === 'join' ?
           <NewOrderConfirmPanel id={id} />
           :
           <NewGroupOptionsPanel mode={mode} id={id} />
         }
-      </>
+      </Fragment>
     );
 
     case 'pizza': return (
@@ -51,8 +51,8 @@ Order.propTypes = {
 const { getCurrentOrderStage } = currentOrderSelectors;
 const { getGroupRestaurantId } = groupSelectors;
 
-const mapStateToProps = (state, { route: { path }, id }) => {
-  const mode = path.split('/')[0];
+const mapStateToProps = (state, { match: { path }, id }) => {
+  const mode = path.split('/')[1];
   return {
     mode,
     stage: getCurrentOrderStage(state),
@@ -60,6 +60,4 @@ const mapStateToProps = (state, { route: { path }, id }) => {
   };
 };
 
-export default parseId(connect(
-  mapStateToProps,
-)(Order));
+export default parseId(connect(mapStateToProps)(Order));

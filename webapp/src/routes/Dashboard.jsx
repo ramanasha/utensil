@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
 
 import { groupSelectors } from 'data/groups';
 
@@ -9,15 +10,15 @@ import MyOrderSummaryPanel from '../ui/panels/MyOrderSummaryPanel';
 import OrganizedGroupSummaryPanel from '../ui/panels/OrganizedGroupSummaryPanel';
 
 const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup }) => (
-  <>
+  <Fragment>
     {hasJoinedGroup ?
-        <MyOrderSummaryPanel />
-        : null}
+      <MyOrderSummaryPanel />
+      : null}
     <Helper />
     {hasOrganizedGroup ?
-        <OrganizedGroupSummaryPanel />
-        : null},
-  </>
+      <OrganizedGroupSummaryPanel />
+      : null}
+  </Fragment>
 );
 
 Dashboard.propTypes = {
@@ -32,6 +33,4 @@ const mapStateToProps = state => ({
   hasOrganizedGroup: hasUserOrganizedGroup(state),
 });
 
-export default connect(
-  mapStateToProps,
-)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
