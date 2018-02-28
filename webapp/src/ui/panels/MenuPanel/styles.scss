@@ -7,6 +7,10 @@
   margin-top: 6em;
   position: relative;
 
+  @media (max-height: 1223px) {
+    margin-top: 0;
+  }
+
   .menu-header {
     padding: 0.4em;
     z-index: 4;

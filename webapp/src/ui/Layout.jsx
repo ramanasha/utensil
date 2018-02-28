@@ -17,7 +17,7 @@ import LeftColumn from './columns/LeftColumn';
 import CenterColumn from './columns/CenterColumn';
 import RightColumn from './columns/RightColumn';
 import Overlay from './Overlay';
-import NavBar from './mobile/NavBar';
+import Title from './columns/CenterColumn/Title';
 
 import './master.scss';
 
@@ -73,7 +73,7 @@ class Layout extends Component {
               <Overlay centerFocus={centerFocus} />
             </Responsive>
             <Responsive maxWidth={1223}>
-              <NavBar />
+              <Title terse />
               <Routes />
             </Responsive>
           </div>

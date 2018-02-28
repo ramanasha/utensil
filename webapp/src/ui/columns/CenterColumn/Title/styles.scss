@@ -2,16 +2,19 @@
 @import '~common/styles/panel-measurements';
 
 .title {
-  position: absolute;
-  top: 0;
   font-size: 2.8em;
   font-weight: bold;
   width: 100%;
   text-align: center;
-  margin-top: $margin / 2.5;
-  margin-bottom: auto;
+  margin: ($margin / 2.5) 0;
   z-index: 2;
   pointer-events: none;
+
+  @media screen and (min-width: 1224px) {
+    position: absolute;
+    top: 0;
+    margin-bottom: auto;
+  }
 
   .heading {
     vertical-align: middle;
