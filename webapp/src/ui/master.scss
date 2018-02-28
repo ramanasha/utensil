@@ -8,13 +8,16 @@ html {
   body {
     background-color: $background-color;
 
-    #container > div {
+    .app {
       color: $text-color;
       font-size: 100%;
       min-width: 20em;
       overflow: hidden;
-      padding: 0 20em;
       transition-duration: .2s;
+      
+      @media (min-width: 1224px) {
+        padding: 0 20em;
+      }
     }
   }
 }

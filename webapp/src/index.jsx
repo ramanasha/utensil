@@ -1,23 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-
-import { selectLocationState } from 'data/routing';
+import createHistory from 'history/createBrowserHistory';
 
 import configureStore from './configureStore';
-import routes from './routes';
+import App from './App';
 
-const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store, { selectLocationState });
+const history = createHistory();
+const store = configureStore(history);
 const container = document.getElementById('container');
 
 render(
   <Provider store={store}>
-    <Router history={history} routes={routes} />
+    <App history={history} />
   </Provider>,
   container,
 );
-
-module.hot.accept();

@@ -1,30 +1,25 @@
-const { resolve } = require('path');
 const webpack = require('webpack');
+const { resolve } = require('path');
 
 const BUILD_DIR = resolve(__dirname, 'dist');
+const APP_DIR = resolve(__dirname, 'src');
 
 module.exports = {
-  mode: 'development',
-  entry: ['./src/index.jsx'],
-  output: {
-    path: resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/',
-  },
+  entry: [
+    'webpack-dev-server/client?http://localhost:9090',
+    'webpack/hot/only-dev-server',
+    `${APP_DIR}/index.jsx`,
+  ],
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: { loader: 'babel-loader' },
+        loader: 'react-hot-loader/webpack!babel-loader',
       },
       {
         test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' },
-        ],
+        loader: 'style-loader!css-loader!postcss-loader!sass-loader',
       },
     ],
   },
@@ -35,13 +30,22 @@ module.exports = {
       data: resolve(__dirname, 'src/data'),
     },
   },
+  output: {
+    path: BUILD_DIR,
+    filename: 'bundle.js',
+    publicPath: '/',
+  },
   devServer: {
+    hot: true,
     contentBase: BUILD_DIR,
     disableHostCheck: true,
-    proxy: { '/api': 'http://localhost:8081' },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8081',
+      },
+    },
     historyApiFallback: true,
   },
-  devtool: 'eval-source-map',
   plugins: [
     new webpack.NamedModulesPlugin(),
   ],

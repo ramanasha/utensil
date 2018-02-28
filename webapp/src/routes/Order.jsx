@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -7,7 +7,6 @@ import { parseId } from 'common/utils';
 import { currentOrderSelectors } from 'data/currentOrder';
 import { groupSelectors } from 'data/groups';
 
-import CenterColumn from '../ui/columns/CenterColumn';
 import MenuPanel from '../ui/panels/MenuPanel';
 import CurrentOrderPanel from '../ui/panels/CurrentOrderPanel';
 import PizzaBuilderPanel from '../ui/panels/PizzaBuilderPanel';
@@ -17,27 +16,25 @@ import NewOrderConfirmPanel from '../ui/panels/NewOrderConfirmPanel';
 const Order = ({ mode, stage, menuId, id }) => {
   switch (stage) {
     case 'choose': return (
-      <CenterColumn>
+      <Fragment>
         <MenuPanel id={menuId} viewOnly={false} />
         <CurrentOrderPanel />
-      </CenterColumn>
+      </Fragment>
     );
 
     case 'confirm': return (
-      <CenterColumn>
+      <Fragment>
         <CurrentOrderPanel />
         {mode === 'join' ?
           <NewOrderConfirmPanel id={id} />
           :
           <NewGroupOptionsPanel mode={mode} id={id} />
         }
-      </CenterColumn>
+      </Fragment>
     );
 
     case 'pizza': return (
-      <CenterColumn>
-        <PizzaBuilderPanel id={menuId} />
-      </CenterColumn>
+      <PizzaBuilderPanel id={menuId} />
     );
 
     default: return null;
@@ -54,8 +51,8 @@ Order.propTypes = {
 const { getCurrentOrderStage } = currentOrderSelectors;
 const { getGroupRestaurantId } = groupSelectors;
 
-const mapStateToProps = (state, { route: { path }, id }) => {
-  const mode = path.split('/')[0];
+const mapStateToProps = (state, { match: { path }, id }) => {
+  const mode = path.split('/')[1];
   return {
     mode,
     stage: getCurrentOrderStage(state),
@@ -63,6 +60,4 @@ const mapStateToProps = (state, { route: { path }, id }) => {
   };
 };
 
-export default parseId(connect(
-  mapStateToProps,
-)(Order));
+export default parseId(connect(mapStateToProps)(Order));
