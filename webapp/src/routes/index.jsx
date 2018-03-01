@@ -16,7 +16,7 @@ import OrderDetails from './OrderDetails';
 const Routes = () => (
   <Switch>
     <Route exact path='/' component={Dashboard} />
-    <Route path='/login' component={Login} />
+    <Route exact path='/login' component={Login} />
     <Route path='/login/create' component={CreateAccount} />
     <Route path='/login/splitwise-auth' component={SplitwiseAuth} />
     <Route path='/menu/:id' component={Menu} />

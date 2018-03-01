@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Responsive from 'react-responsive';
 import qs from 'query-string';
 
@@ -113,7 +114,7 @@ const mapDispatchToProps = dispatch => ({
   updateRestaurantHours: () => dispatch(updateRestaurantHours()),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(toJS(Layout));
+)(toJS(Layout)));
