@@ -193,7 +193,7 @@ export const actions = {
       dispatch(actions.newAccountFailure('Invalid email address.'));
     } else if (!passwordValid(password)) {
       dispatch(actions.newAccountFailure('Invalid password.'));
-    } else if (password === confirmPassword) {
+    } else if (password !== confirmPassword) {
       dispatch(actions.newAccountFailure('Passwords must match.'));
     } else {
       dispatch(actions.sendNewAccount());

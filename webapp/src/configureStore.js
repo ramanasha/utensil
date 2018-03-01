@@ -16,7 +16,7 @@ export default history => {
 
   if (module.hot) {
     module.hot.accept('data/rootReducer', () => {
-      const nextRootReducer = require('data/rootReducer'); // eslint-disable-line global-require
+      const nextRootReducer = require('data/rootReducer').default; // eslint-disable-line global-require
       store.replaceReducer(nextRootReducer);
     });
   }
