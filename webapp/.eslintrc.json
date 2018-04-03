@@ -9,6 +9,7 @@
     "jsx-quotes": ["error", "prefer-single"]
   },
   "globals": {
-    "document": true
+    "document": true,
+    "fetch": true
   }
 }
