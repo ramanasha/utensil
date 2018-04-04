@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import psycopg2
 from pprint import pprint
 
+SCHEMA = 'test'
+
 page = requests.get('https://www.yelp.com/menu/coconut-thai-cafe-wellesley/full-menu').text
 
 soup = BeautifulSoup(page, 'html.parser')
@@ -16,15 +18,15 @@ cur = conn.cursor()
 restaurant_id = 8
 
 section_query = """
-                INSERT INTO test.menu_section (restaurant_id, name)
+                INSERT INTO {}.menu_section (restaurant_id, name)
                 VALUES (%s, %s)
                 RETURNING menu_section_id
-                """
+                """.format(SCHEMA)
 
 item_query = """
-             INSERT INTO test.item (menu_section_id, name, description, price)
+             INSERT INTO {}.item (menu_section_id, name, description, price)
              VALUES (%(menu_section_id)s, %(name)s, %(description)s, %(price)s)
-             """
+             """.format(SCHEMA)
 
 for heading, section in zip(headings, sections):
 

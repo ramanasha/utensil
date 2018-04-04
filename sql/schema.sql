@@ -1,10 +1,6 @@
-\c consamables sam;
+\i variables.sql
 
-DROP SCHEMA test CASCADE;
-
-CREATE SCHEMA test AUTHORIZATION sam;
-
-SET search_path TO test;
+\c :dbname :user
 
 CREATE TYPE group_phase AS ENUM ('pending', 'active', 'ordered', 'complete');
 
