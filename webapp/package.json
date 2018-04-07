@@ -4,8 +4,8 @@
   "description": "React App for Consamables",
   "main": "index.jsx",
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --hot --progress --colors --open --port 9090 --host 0.0.0.0",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --hot --progress --colors --open --port 9090 --host 0.0.0.0 --config webpack.dev.js",
     "lint": "eslint src"
   },
   "author": "Sam Myers <sam@students.olin.edu>",
@@ -57,6 +57,7 @@
     "style-loader": "^0.20.2",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.1.0"
+    "webpack-dev-server": "^3.1.0",
+    "webpack-merge": "^4.1.2"
   }
 }
