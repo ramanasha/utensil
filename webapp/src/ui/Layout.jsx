@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Responsive from 'react-responsive';
 import qs from 'query-string';
 
@@ -17,7 +18,8 @@ import LeftColumn from './columns/LeftColumn';
 import CenterColumn from './columns/CenterColumn';
 import RightColumn from './columns/RightColumn';
 import Overlay from './Overlay';
-import NavBar from './mobile/NavBar';
+import Title from './columns/CenterColumn/Title';
+import BottomNavBar from './mobile/BottomNavBar';
 
 import './master.scss';
 
@@ -31,7 +33,7 @@ class Layout extends Component {
     } = this.props;
 
     if (pathname === '/login/splitwise-auth') {
-      const query = qs(search);
+      const query = qs.parse(search);
       splitwiseLoad(query.oauth_token, query.oauth_verifier);
     } else {
       loadUserInfo();
@@ -48,7 +50,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { location } = this.props;
+    const { location, loggedIn } = this.props;
 
     const centerFocus = !/^\/(menu\/[0-9]+)?$/.test(location.pathname);
     const style = centerFocus ? { minWidth: '30em', padding: '0 15em' } : null;
@@ -73,8 +75,9 @@ class Layout extends Component {
               <Overlay centerFocus={centerFocus} />
             </Responsive>
             <Responsive maxWidth={1223}>
-              <NavBar />
+              <Title terse />
               <Routes />
+              {loggedIn ? <BottomNavBar /> : null}
             </Responsive>
           </div>
         )}
@@ -113,7 +116,7 @@ const mapDispatchToProps = dispatch => ({
   updateRestaurantHours: () => dispatch(updateRestaurantHours()),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(toJS(Layout));
+)(toJS(Layout)));

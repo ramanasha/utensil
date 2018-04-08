@@ -17,6 +17,7 @@ export const types = createActionTypes([
   'SET_USER_INFO',
   'UPDATE_USERNAME_FIELD',
   'UPDATE_PASSWORD_FIELD',
+  'UPDATE_CONFIRM_PASSWORD_FIELD',
   'SEND_LOGIN',
   'LOGIN_SUCCESS',
   'LOGIN_FAILURE',
@@ -192,7 +193,7 @@ export const actions = {
       dispatch(actions.newAccountFailure('Invalid email address.'));
     } else if (!passwordValid(password)) {
       dispatch(actions.newAccountFailure('Invalid password.'));
-    } else if (password === confirmPassword) {
+    } else if (password !== confirmPassword) {
       dispatch(actions.newAccountFailure('Passwords must match.'));
     } else {
       dispatch(actions.sendNewAccount());

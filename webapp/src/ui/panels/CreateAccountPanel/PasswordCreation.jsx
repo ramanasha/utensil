@@ -9,18 +9,18 @@ function PasswordCreation({
   onPasswordChange, onConfirmPasswordChange,
 }) {
   return (
-    <div className="login-field">
-      <div className="credential-label">Password</div>
+    <div className='login-field'>
+      <div className='credential-label'>Password</div>
       <input
-        type="password"
-        name="password"
+        type='password'
+        name='password'
         value={passwordValue}
         onChange={onPasswordChange}
       />
-      <div className="credential-label">Confirm Password</div>
+      <div className='credential-label'>Confirm Password</div>
       <input
-        type="password"
-        name="confirm-password"
+        type='password'
+        name='confirm-password'
         value={confirmPasswordValue}
         onChange={onConfirmPasswordChange}
       />

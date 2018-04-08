@@ -18,6 +18,17 @@ html {
       @media (min-width: 1224px) {
         padding: 0 20em;
       }
+
+      @media (max-width: 1223px) {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 0.9em;
+      }
     }
   }
 }

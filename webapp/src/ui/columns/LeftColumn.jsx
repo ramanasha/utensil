@@ -6,7 +6,7 @@ import PendingGroupPanel from '../panels/PendingGroupPanel';
 import './column.scss';
 
 const LeftColumn = () => (
-  <div className="column-left">
+  <div className='column-left'>
     <ActiveGroupPanel />
     <PendingGroupPanel />
   </div>
