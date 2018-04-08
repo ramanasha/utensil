@@ -1,5 +1,8 @@
-FROM nginx
+FROM node
 
 RUN mkdir /wwwroot
-COPY nginx.conf /etc/nginx/nginx.conf
+WORKDIR /wwwroot
+
+FROM nginx
+ADD nginx.conf /etc/nginx/nginx.conf
 RUN service nginx start
