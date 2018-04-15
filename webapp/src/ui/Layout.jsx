@@ -34,7 +34,7 @@ class Layout extends Component {
 
     if (pathname === '/login/splitwise-auth') {
       const query = qs.parse(search);
-      splitwiseLoad(query.oauth_token, query.oauth_verifier);
+      splitwiseLoad(query.code);
     } else {
       loadUserInfo();
     }
@@ -108,7 +108,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  splitwiseLoad: (token, verifier) => dispatch(verifyAndAuthenticateWithSplitwise(token, verifier)),
+  splitwiseLoad: code => dispatch(verifyAndAuthenticateWithSplitwise(code)),
   loadUserInfo: () => dispatch(verifyUser()),
   loadRestaurants: () => dispatch(fetchRestaurants()),
   loadActiveOrders: () => dispatch(fetchActiveGroups()),

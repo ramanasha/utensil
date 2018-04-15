@@ -38,7 +38,7 @@ module.exports = {
   devServer: {
     contentBase: BUILD_DIR,
     disableHostCheck: true,
-    proxy: { '/api': 'http://localhost:8081' },
+    proxy: { '/api': 'http://localhost:8080' },
     historyApiFallback: true,
   },
   devtool: 'eval-source-map',

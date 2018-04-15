@@ -70,7 +70,7 @@ public interface GroupDAO {
                "('ordered', now()) WHERE group_id = :groupId")
     void markGroupOrdered(@Bind("groupId") long groupId);
 
-    @SqlUpdate("UPDATE \"group\" SET (phase) = ('complete') " +
+    @SqlUpdate("UPDATE \"group\" SET phase = 'complete' " +
                "WHERE group_id = :groupId")
     void markGroupComplete(@Bind("groupId") long groupId);
 

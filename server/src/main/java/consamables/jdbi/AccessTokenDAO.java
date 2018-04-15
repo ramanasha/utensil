@@ -19,7 +19,7 @@ public interface AccessTokenDAO {
     @SqlQuery("SELECT * FROM access_token WHERE access_token_id = CAST(:accessTokenId AS uuid)")
     AccessToken findById(@Bind("accessTokenId") String accessTokenId);
 
-    @SqlUpdate("UPDATE access_token SET (last_access_time) = (now()) " +
+    @SqlUpdate("UPDATE access_token SET last_access_time = now() " +
                "WHERE access_token_id = CAST(:accessTokenId AS uuid)")
     void updateLastAccessTime(@Bind("accessTokenId") String accessTokenId);
 }

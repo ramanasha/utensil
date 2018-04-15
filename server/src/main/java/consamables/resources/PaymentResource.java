@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 
 import consamables.api.User;
 import consamables.payment.PaymentManager;
-import consamables.payment.SplitwiseVerifier;
+import consamables.payment.SplitwiseCode;
 import io.dropwizard.auth.Auth;
 
 @Path("/payment")
@@ -29,18 +29,18 @@ public class PaymentResource {
     @Path("/authorize-url")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String getAuthorizationUrl(@Auth User user) throws IOException {
-        return paymentManager.getAuthUrl(user.getUserId());
+    public String getAuthorizationUrl() {
+        return paymentManager.getAuthorizationUrl();
     }
     
     @Path("/authenticate-user")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response authenticateSplitwiseUser(@Auth User user, @Valid SplitwiseVerifier verifier) throws IOException {
-        if (!user.getUserId().equals(verifier.getUserId())) {
+    public Response authenticateSplitwiseUser(@Auth User user, @Valid SplitwiseCode code) throws IOException {
+        if (!user.getUserId().equals(code.getUserId())) {
             throw new NotAuthorizedException("You don't have permission to do this.", Response.status(401).build());
         }
-        paymentManager.authenticateUser(verifier);
+        paymentManager.authenticateUser(code);
 
         return Response.ok().build();
     }

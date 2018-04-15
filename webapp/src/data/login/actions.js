@@ -118,7 +118,7 @@ export const actions = {
     }
   },
 
-  verifyAndAuthenticateWithSplitwise: (requestToken, verifier) => dispatch => {
+  verifyAndAuthenticateWithSplitwise: code => dispatch => {
     if (!TokenManager.retrieveAccessToken()) {
       dispatch(push('/login'));
     } else {
@@ -132,8 +132,7 @@ export const actions = {
                 splitwiseAuthenticated,
               ));
               dispatch(actions.authenticateWithSplitwise({
-                requestToken,
-                verifier,
+                code,
                 userId,
               }));
             });
