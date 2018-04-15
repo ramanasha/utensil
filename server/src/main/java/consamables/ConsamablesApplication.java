@@ -58,6 +58,7 @@ public class ConsamablesApplication extends Application<ConsamablesConfiguration
         final PaymentManager paymentManager = new PaymentManager(
                 config.getSplitwiseConsumerKey(),
                 config.getSplitwiseConsumerSecret(),
+                config.getSplitwiseCallbackUri(),
                 config.getSplitwiseGroupId(),
                 config.getLocalMealTax(),
                 splitwiseTokenDAO, splitwiseUserDAO, itemDAO);

@@ -22,7 +22,7 @@ public interface SplitwiseUserDAO {
     @SqlQuery("SELECT splitwise_user_id FROM \"user\" WHERE user_id = :userId")
     long getSplitwiseUserId(@Bind("userId") long userId);
 
-    @SqlUpdate("UPDATE \"user\" SET (splitwise_group_id) = (:groupId) " +
+    @SqlUpdate("UPDATE \"user\" SET splitwise_group_id = :groupId " +
                "WHERE user_id = :userId")
     void setGroupForUser(@Bind("groupId") long groupId, @Bind("userId") long userId);
 

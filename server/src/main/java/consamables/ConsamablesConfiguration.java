@@ -38,6 +38,11 @@ public class ConsamablesConfiguration extends Configuration {
     @NotNull
     @JsonProperty
     private BigDecimal localMealTax;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private String splitwiseCallbackUri;
 
     @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory factory) {
@@ -73,6 +78,14 @@ public class ConsamablesConfiguration extends Configuration {
 
     public void setSplitwiseConsumerSecret(String splitwiseConsumerSecret) {
         this.splitwiseConsumerSecret = splitwiseConsumerSecret;
+    }
+
+    public String getSplitwiseCallbackUri() {
+        return splitwiseCallbackUri;
+    }
+
+    public void setSplitwiseCallbackUri(String splitwiseCallbackUri) {
+        this.splitwiseCallbackUri = splitwiseCallbackUri;
     }
 
     public long getSplitwiseGroupId() {
