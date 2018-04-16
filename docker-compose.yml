@@ -2,10 +2,10 @@ version: "3"
 
 services:
   db:
-    image: consamables-db
+    image: sam4core/consamables-db
     build: sql
   api:
-    image: consamables-api
+    image: sam4core/consamables-api
     build: server
     ports:
       - "8080:8080"
@@ -13,7 +13,7 @@ services:
       - db
     command: ["./wait-for-db.sh", "db", "java", "-jar", "consamables.jar", "server", "config.yml"]
   web:
-    image: consamables-web
+    image: sam4core/consamables-web
     build: webapp
     ports:
       - "80:9090"
