@@ -92,8 +92,8 @@ public class ConsamablesConfiguration extends Configuration {
         return splitwiseGroupId;
     }
 
-    public void setSplitwiseGroupId(long splitwiseGroupId) {
-        this.splitwiseGroupId = splitwiseGroupId;
+    public void setSplitwiseGroupId(String splitwiseGroupId) {
+        this.splitwiseGroupId = Long.parseLong(splitwiseGroupId);
     }
 
     public BigDecimal getLocalMealTax() {
