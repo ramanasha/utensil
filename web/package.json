@@ -7,13 +7,21 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --hot --progress --colors --open --port 9090 --host 0.0.0.0 --config webpack.dev.js",
     "lint": "eslint src",
-    "test": "test.sh"
+    "test": "jest"
   },
   "author": "Sam Myers <sam@students.olin.edu>",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/sammyers/consamables.git"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+    "moduleNameMapper": {
+      "^common(.*)$": "<rootDir>src/common$1",
+      "^data(.*)$": "<rootDir>src/data$1",
+      "\\.(css|scss)$": "<rootDir>src/__mocks__/styleMock.js"
+    }
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -36,23 +44,30 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/preset-react": "^7.0.0-beta.40",
     "@babel/preset-stage-2": "^7.0.0-beta.40",
     "autoprefixer": "^8.0.0",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^0.28.10",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.1.1",
     "react-hot-loader": "^4.0.0",
+    "react-test-renderer": "^16.3.2",
+    "regenerator-runtime": "^0.11.1",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
