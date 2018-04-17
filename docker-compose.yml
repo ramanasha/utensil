@@ -3,11 +3,9 @@ version: "3"
 services:
   db:
     image: sam4core/consamables-db
-    build: db
     env_file: secrets/db_variables.env
   api:
     image: sam4core/consamables-api
-    build: api
     ports:
       - "8080:8080"
     depends_on:
@@ -18,7 +16,6 @@ services:
       - secrets/api_variables.env
   web:
     image: sam4core/consamables-web
-    build: web
     ports:
       - "80:9090"
     depends_on:
