@@ -13,4 +13,3 @@ COPY wait-for-db.sh /app
 EXPOSE 8080
 
 CMD ["java", "-jar", "consamables.jar", "server", "config.yml"]
-

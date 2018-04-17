@@ -28,7 +28,12 @@ public class ConsamablesConfiguration extends Configuration {
     @NotNull
     @JsonProperty
     private String splitwiseConsumerSecret;
-    
+
+    @Valid
+    @NotNull
+    @JsonProperty
+    private String splitwiseCallbackUri;
+
     @Valid
     @NotNull
     @JsonProperty
@@ -38,11 +43,6 @@ public class ConsamablesConfiguration extends Configuration {
     @NotNull
     @JsonProperty
     private BigDecimal localMealTax;
-    
-    @Valid
-    @NotNull
-    @JsonProperty
-    private String splitwiseCallbackUri;
 
     @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory factory) {

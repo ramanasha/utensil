@@ -1,9 +1,43 @@
+dist: trusty
 sudo: required
-
-language: node_js
 
 services:
   - docker
 
-script: yarn run build
+matrix:
+  include:
+    - language: java
+      jdk: oraclejdk8
+      before_script:
+        - cd api
+      script: mvn package
+      deploy:
+        provider: script
+        script: "bash ../docker-deploy.sh api ."
+        on:
+          tags: true
 
+    - language: node_js
+      before_script:
+        - cd web
+        - yarn install
+      cache:
+        directories:
+          - "node_modules"
+      script:
+        - yarn test
+        - yarn run build
+      deploy:
+        provider: script
+        script: "bash ../docker-deploy.sh web ."
+        on:
+          tags: true
+
+    - language: generic
+      before_script:
+        - cd db
+      deploy:
+        provider: script
+        script: "bash ../docker-deploy.sh db ."
+        on:
+          tags: true

@@ -55,9 +55,6 @@ public class PaymentManager {
 
     public String getAuthorizationUrl() {
         return service.getAuthorizationUrl();
-//        final OAuth1RequestToken requestToken = service.getRequestToken();
-//        tokenDAO.setRequestTokenSecret(requestToken.getTokenSecret(), userId);
-//        return service.getAuthorizationUrl(requestToken);
     }
 
     public void authenticateUser(SplitwiseCode code) throws IOException {
