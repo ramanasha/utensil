@@ -19,6 +19,8 @@ matrix:
           tags: true
 
     - language: node_js
+      node_js:
+        - "node"
       before_script:
         - cd web
         - yarn install
