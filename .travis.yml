@@ -12,6 +12,7 @@ matrix:
         - cd api
       script: mvn package
       deploy:
+        skip_cleanup: true
         provider: script
         script: "bash ../docker-deploy.sh api"
         on:
@@ -28,6 +29,7 @@ matrix:
         - yarn test
         - yarn run build
       deploy:
+        skip_cleanup: true
         provider: script
         script: "bash ../docker-deploy.sh web"
         on:
