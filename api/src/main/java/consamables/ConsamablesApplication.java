@@ -5,6 +5,8 @@ import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter;
+import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
+import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.jdbi.DBIFactory;
@@ -82,6 +84,12 @@ public class ConsamablesApplication extends Application<ConsamablesConfiguration
     @Override
     public void initialize(Bootstrap<ConsamablesConfiguration> bootstrap) {
         bootstrap.addBundle(new AssetsBundle("/build/", "/static/"));
+        bootstrap.setConfigurationSourceProvider(
+                new SubstitutingSourceProvider(
+                        bootstrap.getConfigurationSourceProvider(),
+                        new EnvironmentVariableSubstitutor(false)
+                )
+        );
     }
 
     public static void main(String[] args) throws Exception {

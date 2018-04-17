@@ -1,7 +1,3 @@
-\i variables.sql
-
-\c :dbname :user
-
 CREATE TYPE group_phase AS ENUM ('pending', 'active', 'ordered', 'complete');
 
 CREATE TYPE group_type AS ENUM ('delivery', 'carryout', 'outing', 'delivery or carryout', 'any');

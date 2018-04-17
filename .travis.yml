@@ -13,7 +13,7 @@ matrix:
       script: mvn package
       deploy:
         provider: script
-        script: "bash ../docker-deploy.sh api ."
+        script: "bash ../docker-deploy.sh api"
         on:
           tags: true
 
@@ -29,7 +29,7 @@ matrix:
         - yarn run build
       deploy:
         provider: script
-        script: "bash ../docker-deploy.sh web ."
+        script: "bash ../docker-deploy.sh web"
         on:
           tags: true
 
@@ -38,6 +38,6 @@ matrix:
         - cd db
       deploy:
         provider: script
-        script: "bash ../docker-deploy.sh db ."
+        script: "bash ../docker-deploy.sh db"
         on:
           tags: true

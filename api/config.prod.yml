@@ -1,0 +1,53 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+
+  adminConnectors:
+    - type: http
+      port: 8081
+
+  rootPath: /api/*
+
+
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard.jersey.jackson.JsonProcessingExceptionMapper: DEBUG
+  appenders:
+    - type: console
+
+
+database:
+  driverClass: org.postgresql.Driver
+  user: ${POSTGRES_USER}
+  password: ${POSTGRES_PASSWORD}
+  url: jdbc:postgresql://db/${POSTGRES_USER}
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+
+
+jerseyClient:
+  minThreads: 1
+  maxThreads: 128
+  workQueueSize: 8
+  gzipEnabled: true
+  gzipEnabledForRequests: true
+  chunkedEncodingEnabled: true
+
+
+splitwiseConsumerKey: ${SPLITWISE_KEY}
+splitwiseConsumerSecret: ${SPLITWISE_SECRET}
+splitwiseGroupId: ${SPLITWISE_GROUP_ID}
+splitwiseCallbackUri: ${SPLITWISE_CALLBACK_URI}
+
+
+localMealTax: 0.07

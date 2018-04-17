@@ -4,6 +4,7 @@ services:
   db:
     image: sam4core/consamables-db
     build: db
+    env_file: secrets/db_variables.env
   api:
     image: sam4core/consamables-api
     build: api
@@ -12,6 +13,9 @@ services:
     depends_on:
       - db
     command: ["./wait-for-db.sh", "db", "java", "-jar", "consamables.jar", "server", "config.yml"]
+    env_file:
+      - secrets/db_variables.env
+      - secrets/api_variables.env
   web:
     image: sam4core/consamables-web
     build: web
