@@ -20,7 +20,7 @@ matrix:
 
     - language: node_js
       node_js:
-        - "node"
+        - "9"
       before_script:
         - cd web
         - yarn install
