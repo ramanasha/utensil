@@ -44,8 +44,8 @@ jerseyClient:
   chunkedEncodingEnabled: true
 
 
-splitwiseConsumerKey: ${SPLITWISE_KEY}
-splitwiseConsumerSecret: ${SPLITWISE_SECRET}
+splitwiseConsumerKey: ${SPLITWISE_CONSUMER_KEY}
+splitwiseConsumerSecret: ${SPLITWISE_CONSUMER_SECRET}
 splitwiseGroupId: ${SPLITWISE_GROUP_ID}
 splitwiseCallbackUri: ${SPLITWISE_CALLBACK_URI}
 
