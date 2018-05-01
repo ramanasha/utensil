@@ -14,7 +14,7 @@ matrix:
       deploy:
         skip_cleanup: true
         provider: script
-        script: "bash ../docker-deploy.sh api"
+        script: "bash ../docker-build.sh api"
         on:
           tags: true
 
@@ -33,7 +33,7 @@ matrix:
       deploy:
         skip_cleanup: true
         provider: script
-        script: "bash ../docker-deploy.sh web"
+        script: "bash ../docker-build.sh web"
         on:
           tags: true
 
@@ -42,6 +42,6 @@ matrix:
         - cd db
       deploy:
         provider: script
-        script: "bash ../docker-deploy.sh db"
+        script: "bash ../docker-build.sh db"
         on:
           tags: true
