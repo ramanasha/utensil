@@ -2,7 +2,9 @@ version: "3"
 
 services:
   db:
-    image: sam4core/consamables-db
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
     env_file: secrets/db_variables.env
   api:
     image: sam4core/consamables-api
@@ -20,4 +22,14 @@ services:
       - "80:9090"
     depends_on:
       - api
+  flyway:
+    image: sam4core/docker-flyway
+    volumes:
+      - ./db/migrations:/flyway/sql
+    depends_on:
+      - db
+    entrypoint: dockerize -wait tcp://db:5432
+    command: sh -c 'flyway -url=jdbc:postgresql://db/$${POSTGRES_USER} -user=$${POSTGRES_USER} -password=$${POSTGRES_PASSWORD} migrate'
+    env_file:
+      - secrets/db_variables.env
 
