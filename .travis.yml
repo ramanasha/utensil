@@ -36,12 +36,3 @@ matrix:
         script: "bash ../docker-build.sh web"
         on:
           tags: true
-
-    - language: generic
-      before_script:
-        - cd db
-      deploy:
-        provider: script
-        script: "bash ../docker-build.sh db"
-        on:
-          tags: true
