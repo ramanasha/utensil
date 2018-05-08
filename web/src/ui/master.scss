@@ -1,5 +1,6 @@
 @import '~common/styles/reset';
 @import '~common/styles/colors';
+@import '~common/styles/media';
 
 @import '~common/components/range';
 @import '~common/components/button';
@@ -15,19 +16,21 @@ html {
       overflow: hidden;
       transition-duration: .2s;
       
-      @media (min-width: 1224px) {
+      @include tablet-or-desktop {
         padding: 0 20em;
       }
 
-      @media (max-width: 1223px) {
+      @include mobile {
         display: flex;
+        position: fixed;
+        width: 100%;
         align-items: stretch;
         flex-direction: column;
-        height: calc(100vh - 3.5em);
+        height: calc(100% - 3.5em);
         padding-bottom: 3.5em;
       }
 
-      @media (max-width: 320px) {
+      @include small-mobile {
         font-size: 0.9em;
       }
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -22,6 +22,10 @@ import Title from './columns/CenterColumn/Title';
 import NavBar from './mobile/NavBar';
 
 import './master.scss';
+
+import breakpoints from 'common/styles/_media.scss';
+
+const mobileMax = parseInt(breakpoints.mobileMax);
 
 class Layout extends Component {
   componentDidMount() {
@@ -56,29 +60,29 @@ class Layout extends Component {
     const style = centerFocus ? { minWidth: '30em', padding: '0 15em' } : null;
 
     return (
-      <Responsive minWidth={1224}>
+      <Responsive maxWidth={mobileMax}>
         {matches => (
-          <div className='app' style={matches ? style : null}>
-            {!matches ?
-              <meta
-                name='viewport'
-                content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-              />
-              : null
-            }
-            <Responsive minWidth={1224}>
-              <LeftColumn />
-              <CenterColumn>
+          <div className='app' style={matches ? null : style}>
+            {matches ?
+              <Fragment>
+                <meta
+                  name='viewport'
+                  content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+                />
+                <Title terse />
                 <Routes />
-              </CenterColumn>
-              <RightColumn />
-              <Overlay centerFocus={centerFocus} />
-            </Responsive>
-            <Responsive maxWidth={1223}>
-              <Title terse />
-              <Routes />
-              {loggedIn ? <NavBar /> : null}
-            </Responsive>
+                {loggedIn ? <NavBar /> : null}
+              </Fragment>
+              :
+              <Fragment>
+                <LeftColumn />
+                <CenterColumn>
+                  <Routes />
+                </CenterColumn>
+                <RightColumn />
+                <Overlay centerFocus={centerFocus} />
+              </Fragment>
+            }
           </div>
         )}
       </Responsive>
