@@ -7,7 +7,7 @@ const SubmitButton = ({ text, onSubmit }) => (
 
 SubmitButton.propTypes = {
   text: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 };
 
 export default SubmitButton;
