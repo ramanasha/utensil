@@ -6,17 +6,19 @@ import { mobileSelectors, mobileActions } from 'data/mobile';
 
 import './styles.scss';
 
-const tabs = ['Restaurants', 'Active Orders', 'Pending Orders'];
+const tabs = ['Restaurants', 'Groups', 'Your Order', 'Account'];
+const icons = ['utensils', 'users', 'shopping-bag', 'user-circle']
 
 const NavBar = ({ currentTab, onChangeTab }) => (
-  <div className='mobile-navbar'>
+  <div className='mobile-bottom-navbar'>
     {tabs.map((tab, index) => (
       <div
-        className={`mobile-navbar-tab${currentTab === tab ? ' selected' : ''}`}
+        className={`mobile-bottom-navbar-tab${currentTab === tab ? ' selected' : ''}`}
         key={index}
         onClick={() => onChangeTab(tab)}
       >
-        {tab}
+        <i className={`fas fa-${icons[index]}`} />
+        <div className='tab-label'>{tab}</div>
       </div>
     ))}
   </div>

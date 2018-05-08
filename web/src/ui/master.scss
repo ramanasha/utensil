@@ -23,7 +23,8 @@ html {
         display: flex;
         align-items: stretch;
         flex-direction: column;
-        height: 100vh;
+        height: calc(100vh - 3.5em);
+        padding-bottom: 3.5em;
       }
 
       @media (max-width: 320px) {

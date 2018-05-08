@@ -8,6 +8,8 @@ import { mobileSelectors } from 'data/mobile';
 
 import Helper from '../ui/columns/CenterColumn/Helper';
 import MyOrderSummaryPanel from '../ui/panels/MyOrderSummaryPanel';
+import MyOrderPanel from '../ui/panels/MyOrderPanel';
+import MyAccountPanel from '../ui/panels/MyAccountPanel';
 import OrganizedGroupSummaryPanel from '../ui/panels/OrganizedGroupSummaryPanel';
 import RestaurantPanel from '../ui/panels/RestaurantPanel';
 import ActiveGroupPanel from '../ui/panels/ActiveGroupPanel';
@@ -32,8 +34,14 @@ const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => (
       }
       const TabComponent = {
         Restaurants: RestaurantPanel,
-        'Active Orders': ActiveGroupPanel,
-        'Pending Orders': PendingGroupPanel,
+        Groups: () => (
+          <Fragment>
+            <ActiveGroupPanel />
+            <PendingGroupPanel />
+          </Fragment>
+        ),
+        'Your Order': MyOrderPanel,
+        'Account': MyAccountPanel,
       }[currentTab];
 
       return (

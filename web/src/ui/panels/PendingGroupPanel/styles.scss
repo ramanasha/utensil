@@ -5,10 +5,6 @@
   flex: 1 1 auto;
   min-height: 15em;
 
-  @media (max-width: 1223px) {
-    margin-top: $margin;
-  }
-
   .scrollable {
     padding: 0 0.5em 0.5em;
     overflow: auto;

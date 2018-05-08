@@ -19,7 +19,7 @@ import CenterColumn from './columns/CenterColumn';
 import RightColumn from './columns/RightColumn';
 import Overlay from './Overlay';
 import Title from './columns/CenterColumn/Title';
-import BottomNavBar from './mobile/BottomNavBar';
+import NavBar from './mobile/NavBar';
 
 import './master.scss';
 
@@ -77,7 +77,7 @@ class Layout extends Component {
             <Responsive maxWidth={1223}>
               <Title terse />
               <Routes />
-              {loggedIn ? <BottomNavBar /> : null}
+              {loggedIn ? <NavBar /> : null}
             </Responsive>
           </div>
         )}
