@@ -1,9 +1,13 @@
 @import '~common/styles/panel';
+@import '~common/styles/media';
 
 .restaurant-panel {
   @include panel;
-  margin-top: $margin;
   flex: 1 1 auto;
+
+  @include tablet-or-desktop {
+    margin-top: $margin;
+  }
 
   .scrollable {
     padding: 0 0.5em 0.5em;

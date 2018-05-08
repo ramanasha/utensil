@@ -65,10 +65,6 @@ class Layout extends Component {
           <div className='app' style={matches ? null : style}>
             {matches ?
               <Fragment>
-                <meta
-                  name='viewport'
-                  content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-                />
                 <Title terse />
                 <Routes />
                 {loggedIn ? <NavBar /> : null}

@@ -16,10 +16,14 @@ import ActiveGroupPanel from '../ui/panels/ActiveGroupPanel';
 import PendingGroupPanel from '../ui/panels/PendingGroupPanel';
 import NavBar from '../ui/mobile/NavBar';
 
+import breakpoints from 'common/styles/_media';
+
+const mobileMax = parseInt(breakpoints.mobileMax);
+
 const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => (
-  <Responsive minWidth={1224}>
+  <Responsive maxWidth={mobileMax}>
     {matches => {
-      if (matches) {
+      if (!matches) {
         return (
           <Fragment>
             {hasJoinedGroup ?
