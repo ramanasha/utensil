@@ -1,8 +1,14 @@
 @import '~common/styles/panel';
+@import '~common/styles/media';
 
 .pending-group-panel {
   @include panel;
   flex: 1 1 auto;
+
+  @include phone-landscape {
+    margin-left: 0;
+    flex: 1 1 0;
+  }
 
   .scrollable {
     padding: 0 0.5em 0.5em;

@@ -18,6 +18,12 @@
     margin-right: 0;
   }
 
+  @include phone-landscape {
+    height: 100%;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
   .menu-header {
     padding: 0.4em;
     z-index: 4;
@@ -27,6 +33,7 @@
       text-align: center;
       color: $title-color;
       font-weight: bold;
+      max-width: calc(100% - 1.5em);
     }
   }
 
@@ -71,6 +78,8 @@
 
         .menu-item-description {
           flex: 1 1 auto;
+          display: flex;
+          align-items: center;
         }
       }
 
@@ -137,6 +146,12 @@
               border-radius: 3px;
               color: white;
               background-color: green;
+              cursor: pointer;
+              transition: background-color 0.2s ease;
+
+              &:hover {
+                background-color: darkgreen;
+              }
             }
           }
         }

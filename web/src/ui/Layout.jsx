@@ -60,7 +60,9 @@ class Layout extends Component {
       <div className={classNames('app', { overlaid, 'no-nav': noNav })}>
         <Phone>
           <Title terse />
-          <Routes />
+          <div className='mobile-panel-container'>
+            <Routes />
+          </div>
           <Route exact path='/' component={NavBar} />
         </Phone>
         <Default>

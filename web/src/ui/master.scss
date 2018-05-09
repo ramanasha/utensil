@@ -42,6 +42,16 @@ html {
       @include small-phone {
         font-size: 0.9em;
       }
+
+      .mobile-panel-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+
+        @include phone-landscape {
+          flex-direction: row;
+        }
+      }
     }
   }
 }

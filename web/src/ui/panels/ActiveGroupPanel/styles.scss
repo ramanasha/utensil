@@ -9,6 +9,10 @@
     margin-top: $margin;
   }
 
+  @include phone-landscape {
+    flex: 1 1 0;
+  }
+
   .scrollable {
     padding: 0 0.5em 0.5em;
     overflow: auto;

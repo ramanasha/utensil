@@ -27,6 +27,12 @@ $desktop-width-px: $desktop-width + 0px;
   }
 }
 
+@mixin phone-landscape {
+  @media (max-width: #{$tablet-width-px - 1px}) and (orientation: landscape) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (min-width: #{$tablet-width-px}) and (max-width: #{$desktop-width-px - 1px}) {
     @content;
