@@ -3,3 +3,5 @@ export const isCurrentUserLoggedIn = state => state.getIn(['currentUser', 'logge
 export const getCurrentUsername = state => state.getIn(['currentUser', 'username']);
 
 export const getCurrentUserId = state => state.getIn(['currentUser', 'userId']);
+
+export const getSplitwiseAuth = state => state.getIn(['currentUser', 'splitwiseAuth']);

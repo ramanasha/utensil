@@ -22,11 +22,10 @@ CredentialsPanel.propTypes = {
   logOut: PropTypes.func.isRequired,
 };
 
-const { isCurrentUserLoggedIn, getCurrentUsername } = currentUserSelectors;
+const { getCurrentUsername } = currentUserSelectors;
 const { logOut } = loginActions;
 
 const mapStateToProps = state => ({
-  loggedIn: isCurrentUserLoggedIn(state),
   username: getCurrentUsername(state),
 });
 
