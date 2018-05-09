@@ -6,7 +6,7 @@ import qs from 'query-string';
 import classNames from 'classnames';
 
 import { toJS } from 'common/utils';
-import { Mobile, Default } from 'common/components';
+import { Phone, Default } from 'common/components';
 
 import { loginActions } from 'data/login';
 import { groupActions } from 'data/groups';
@@ -58,11 +58,11 @@ class Layout extends Component {
 
     return (
       <div className={classNames('app', { overlaid, 'no-nav': noNav })}>
-        <Mobile>
+        <Phone>
           <Title terse />
           <Routes />
           <Route exact path='/' component={NavBar} />
-        </Mobile>
+        </Phone>
         <Default>
           <LeftColumn />
           <CenterColumn>

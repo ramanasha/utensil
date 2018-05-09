@@ -14,12 +14,12 @@ function OrderItem({
   onValueChange, onRemove, onIncrement, onDecrement,
 }) {
   return (
-    <div className="order-item">
-      <div className="remove-item" onClick={onRemove}>×</div>
-      <div className="order-item-description">
-        <div className="order-item-name">{name}</div>
+    <div className='order-item'>
+      <div className='remove-item' onClick={onRemove}>×</div>
+      <div className='order-item-description'>
+        <div className='order-item-name'>{name}</div>
         {data ?
-          <div className="order-item-data">
+          <div className='order-item-data'>
             {formatOrderItemData(data)}
           </div>
           : null}
@@ -30,7 +30,7 @@ function OrderItem({
         onIncrement={onIncrement}
         onDecrement={onDecrement}
       />
-      <div className="order-item-price">
+      <div className='order-item-price'>
         ${(price * quantity).toFixed(2)}
       </div>
     </div>

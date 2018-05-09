@@ -13,10 +13,10 @@ import CreateAccountButton from './CreateAccountButton';
 import '../LoginPanel/styles.scss';
 
 const CreateAccountPanel = ({ loading, error }) => (
-  <div className="login-panel">
-    <PanelHeader name="Create an Account" />
-    <div className="login">
-      <div className="login-fields">
+  <div className='login-panel'>
+    <PanelHeader name='Create an Account' />
+    <div className='login'>
+      <div className='login-fields'>
         <UsernameField />
         <PasswordCreation />
       </div>
@@ -24,12 +24,12 @@ const CreateAccountPanel = ({ loading, error }) => (
         <Spinner />
         : <CreateAccountButton />}
       {error ?
-        <div className="error">{error}</div>
+        <div className='error'>{error}</div>
         : null}
     </div>
-    <div className="goto-login">
+    <div className='goto-login'>
       <div>Already have an account?</div>
-      <Link to="/login" className="button">Log in</Link>
+      <Link to='/login' className='button'>Log in</Link>
     </div>
   </div>
 );

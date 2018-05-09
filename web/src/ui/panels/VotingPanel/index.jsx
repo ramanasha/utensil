@@ -12,13 +12,13 @@ import SubmitVote from './SubmitVote';
 import './styles.scss';
 
 const VotingPanel = ({ id, name }) => (
-  <div className="suggestion-panel">
-    <div className="suggestion-header">
+  <div className='suggestion-panel'>
+    <div className='suggestion-header'>
       <CloseButton />
-      <PanelHeader name="Vote for this Order" />
-      <div className="restaurant-name">{name}</div>
+      <PanelHeader name='Vote for this Order' />
+      <div className='restaurant-name'>{name}</div>
     </div>
-    <div className="suggestion-options">
+    <div className='suggestion-options'>
       <DrivingPreference />
       <WaitTimePreference />
     </div>

@@ -11,14 +11,14 @@ import { CloseButton, OrderItem } from 'common/components';
 import './styles.scss';
 
 const MyOrderPanel = ({ restaurantName, orderItems }) => (
-  <div className="my-order-panel">
-    <div className="order-details-header">
+  <div className='my-order-panel'>
+    <div className='order-details-header'>
       <CloseButton />
-      <div className="order-details-heading">
+      <div className='order-details-heading'>
         Your Order from {restaurantName}
       </div>
     </div>
-    <div className="order-items">
+    <div className='order-items'>
       {orderItems.map(orderItem => <OrderItem key={orderItem.orderItemId}{...orderItem} />)}
     </div>
   </div>

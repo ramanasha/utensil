@@ -10,8 +10,8 @@ import { itemSelectors } from 'data/items';
 const OrderItem = ({ name, quantity, data }) => {
   const pizzaSize = data && data.pizza ? data.pizza.size : null;
   return (
-    <div className="order-item">
-      <div className="order-item-name">
+    <div className='order-item'>
+      <div className='order-item-name'>
         {quantity > 1 && `${quantity} × `}
         {name}
         {pizzaSize && ` (${_.startCase(pizzaSize)})`}
@@ -37,18 +37,18 @@ OrderItem.propTypes = {
 OrderItem.defaultProps = { data: null };
 
 const PizzaDetails = ({ toppings, sauce, cheese, size }) => (
-  <div className="item-data pizza">
+  <div className='item-data pizza'>
     {toppings.size > 0 ?
-      <div className="toppings">
+      <div className='toppings'>
         {size === 'half' ?
-          toppings.map(topping => <div className="topping" key={topping}>{topping}</div>)
+          toppings.map(topping => <div className='topping' key={topping}>{topping}</div>)
           : _.toPairs(toppings).map(([topping, side]) => (
-            <div className="topping" key={topping}>{topping} ({side})</div>
+            <div className='topping' key={topping}>{topping} ({side})</div>
           ))}
       </div>
       : null}
     {cheese || sauce ?
-      <div className="other">
+      <div className='other'>
         <div>{cheese}</div>
         <div>{sauce}</div>
       </div>
@@ -68,7 +68,7 @@ const OrderItemData = ({ data }) => {
     return <PizzaDetails {...data.pizza} />;
   }
   return (
-    <div className="item-data" />
+    <div className='item-data' />
   );
 };
 

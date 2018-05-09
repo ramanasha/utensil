@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import { suggestedOrderSelectors, suggestedOrderActions } from 'data/suggestedOrder';
 
 const MinPeoplePreference = ({ value, onChange }) => (
-  <div className="suggestion-option">
-    <div className="suggestion-option-heading">How many more people would it take?</div>
+  <div className='suggestion-option'>
+    <div className='suggestion-option-heading'>How many more people would it take?</div>
     <input
-      className="min-people"
-      type="range"
-      min="1"
-      max="4"
-      step="1"
+      className='min-people'
+      type='range'
+      min='1'
+      max='4'
+      step='1'
       value={value}
       onChange={onChange}
     />
-    <div className="range-label">{value} {value > 1 ? 'people' : 'person'}</div>
+    <div className='range-label'>{value} {value > 1 ? 'people' : 'person'}</div>
   </div>
 );
 

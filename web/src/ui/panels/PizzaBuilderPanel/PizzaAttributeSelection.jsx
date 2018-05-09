@@ -17,10 +17,10 @@ class PizzaAttributeSelection extends React.Component {
     const { expanded } = this.state;
 
     return (
-      <div className="pizza-attribute">
-        <div className="attribute-heading">{name}</div>
+      <div className='pizza-attribute'>
+        <div className='attribute-heading'>{name}</div>
         {expanded ?
-          <div className="attribute-options">
+          <div className='attribute-options'>
             {options.map(value => (
               <div
                 key={value}
@@ -31,8 +31,9 @@ class PizzaAttributeSelection extends React.Component {
               </div>
             ))}
           </div>
-          : <div
-            className="attribute-option selected"
+          :
+          <div
+            className='attribute-option selected'
             onClick={() => this.setState({ expanded: true })}
           >
             {currentValue}

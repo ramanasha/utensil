@@ -9,24 +9,24 @@ import { suggestedOrderActions } from 'data/suggestedOrder';
 
 const RestaurantToolbar = ({ id, open, loggedIn, onStartClick, onSuggestClick }) => {
   const menuButton = (
-    <Link to={`/menu/${id}`} className="button">View Menu</Link>
+    <Link to={`/menu/${id}`} className='button'>View Menu</Link>
   );
 
   if (loggedIn && open) {
     return (
-      <div className="toolbar">
+      <div className='toolbar'>
         {menuButton}
-        <Link to={`/start/${id}`} className="button" onClick={onStartClick}>
+        <Link to={`/start/${id}`} className='button' onClick={onStartClick}>
           Start Order
         </Link>
-        <Link to={`/suggest/${id}`} className="button" onClick={onSuggestClick}>
+        <Link to={`/suggest/${id}`} className='button' onClick={onSuggestClick}>
           Suggest Order
         </Link>
       </div>
     );
   }
   return (
-    <div className="toolbar">
+    <div className='toolbar'>
       {menuButton}
     </div>
   );

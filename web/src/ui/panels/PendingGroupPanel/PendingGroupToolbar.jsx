@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import { currentOrderActions } from 'data/currentOrder';
 
 const PendingGroupToolbar = ({ id, hasVoted, onJoin, onStart }) => (
-  <div className="toolbar">
+  <div className='toolbar'>
     {!hasVoted ?
-      <Link to={`/vote/${id}`} className="button" onClick={onJoin}>Join Queue</Link>
-      : <div className="already-voted">Joined</div>}
-    <Link to={`/activate/${id}`} className="button" onClick={onStart}>Start Order</Link>
+      <Link to={`/vote/${id}`} className='button' onClick={onJoin}>Join Queue</Link>
+      : <div className='already-voted'>Joined</div>}
+    <Link to={`/activate/${id}`} className='button' onClick={onStart}>Start Order</Link>
   </div>
 );
 

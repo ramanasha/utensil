@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { pizzaBuilderActions } from 'data/pizzaBuilder';
 
 const AddPizzaButton = ({ onAdd }) => (
-  <button className="button" onClick={onAdd}>Add to Order</button>
+  <button className='button' onClick={onAdd}>Add to Order</button>
 );
 
 AddPizzaButton.propTypes = {

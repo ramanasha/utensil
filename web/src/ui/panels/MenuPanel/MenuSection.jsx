@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 
 const MenuSection = ({ name, items, viewOnly }) => (
-  <div className="menu-section">
-    <div className="menu-section-name">{name}</div>
+  <div className='menu-section'>
+    <div className='menu-section-name'>{name}</div>
     {items.map(item => <MenuItem key={item.name} {...item} viewOnly={viewOnly} />)}
   </div>
 );

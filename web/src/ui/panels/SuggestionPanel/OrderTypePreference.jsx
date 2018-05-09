@@ -11,7 +11,7 @@ const OrderTypeOption = ({ type, checked, onToggle }) => (
   <label htmlFor={type}>
     <input
       id={type}
-      type="checkbox"
+      type='checkbox'
       checked={checked}
       onChange={onToggle}
     />
@@ -26,9 +26,9 @@ OrderTypeOption.propTypes = {
 };
 
 const OrderTypePreference = ({ orderTypes, onToggle }) => (
-  <div className="suggestion-option">
-    <div className="suggestion-option-heading">What works for you?</div>
-    <div className="suggestion-option-choices">
+  <div className='suggestion-option'>
+    <div className='suggestion-option-heading'>What works for you?</div>
+    <div className='suggestion-option-choices'>
       {['delivery', 'carryout', 'outing'].map(type => (
         <OrderTypeOption
           key={type}

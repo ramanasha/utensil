@@ -13,16 +13,15 @@ import MenuSection from './MenuSection';
 import './styles.scss';
 
 const MenuPanel = ({ name, menu, viewOnly }) => (
-  <div className="menu-panel">
-    <div className="menu-header">
+  <div className='menu-panel'>
+    <div className='menu-header'>
       <CloseButton />
-      <div className="menu-name">{viewOnly ? `${name} Menu` : `Ordering from ${name}`}</div>
+      <div className='menu-name'>{viewOnly ? `${name} Menu` : `Ordering from ${name}`}</div>
     </div>
-    <div className="scrollable">
+    <div className='scrollable'>
       {menu.map(menuSection => (
         <MenuSection viewOnly={viewOnly} key={menuSection.menuSectionId} {...menuSection} />
-      ),
-      )}
+      ))}
     </div>
   </div>
 );

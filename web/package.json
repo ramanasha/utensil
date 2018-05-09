@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --hot --progress --colors --open --port 9090 --host 0.0.0.0 --config webpack.dev.js",
-    "lint": "eslint src",
+    "lint": "eslint --ext .jsx --ext .js src",
     "test": "jest"
   },
   "author": "Sam Myers <sam@students.olin.edu>",

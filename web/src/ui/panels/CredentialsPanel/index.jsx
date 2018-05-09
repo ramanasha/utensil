@@ -7,18 +7,17 @@ import { loginActions } from 'data/login';
 
 import './styles.scss';
 
-const CredentialsPanel = ({ loggedIn, username, logOut }) => (
-  <div className="credentials-panel">
-    <div className="signed-in">
+const CredentialsPanel = ({ username, logOut }) => (
+  <div className='credentials-panel'>
+    <div className='signed-in'>
       <div>Currently signed in as</div>
-      <div className="email">{username}</div>
+      <div className='email'>{username}</div>
     </div>
-    <button className="button" onClick={logOut}>Sign out</button>
+    <button className='button' onClick={logOut}>Sign out</button>
   </div>
 );
 
 CredentialsPanel.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
   logOut: PropTypes.func.isRequired,
 };

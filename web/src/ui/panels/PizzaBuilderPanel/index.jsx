@@ -28,15 +28,15 @@ class PizzaBuilderPanel extends React.Component {
   displayToppings() {
     if (this.props.hasToppings) {
       return (
-        <div className="choice-display">
-          <SideToppings side="left" />
-          <SideToppings side="whole" />
-          <SideToppings side="right" />
+        <div className='choice-display'>
+          <SideToppings side='left' />
+          <SideToppings side='whole' />
+          <SideToppings side='right' />
         </div>
       );
     }
     return (
-      <div className="no-toppings">No Toppings</div>
+      <div className='no-toppings'>No Toppings</div>
     );
   }
 
@@ -44,20 +44,20 @@ class PizzaBuilderPanel extends React.Component {
     const { toppings, sauces, whole, close } = this.props;
 
     return (
-      <div className="pizza-builder-panel">
-        <PanelHeader name="Pizza Builder" />
+      <div className='pizza-builder-panel'>
+        <PanelHeader name='Pizza Builder' />
         <PizzaSizeSelection />
-        <div className="toppings">
-          <ToppingsSection name="Meats" toppings={toppings.meats} />
-          <ToppingsSection name="Non-Meats" toppings={toppings['non-meats']} />
+        <div className='toppings'>
+          <ToppingsSection name='Meats' toppings={toppings.meats} />
+          <ToppingsSection name='Non-Meats' toppings={toppings['non-meats']} />
         </div>
         <CheeseSelection options={['No Cheese', 'Normal Cheese', 'Extra Cheese']} />
         {whole ?
           <SauceSelection options={['No Sauce', sauces.default, ...sauces.other]} />
           : null}
         {whole ? this.displayToppings() : null}
-        <div className="toolbar">
-          <button className="button" onClick={close}>Cancel</button>
+        <div className='toolbar'>
+          <button className='button' onClick={close}>Cancel</button>
           <AddPizzaButton />
         </div>
       </div>
@@ -78,6 +78,8 @@ PizzaBuilderPanel.propTypes = {
   hasToppings: PropTypes.bool.isRequired,
   whole: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
+  setSauce: PropTypes.func.isRequired,
+  setMaxToppings: PropTypes.func.isRequired,
 };
 
 const { getItemId, getPizzaSize, getCurrentToppings } = pizzaBuilderSelectors;

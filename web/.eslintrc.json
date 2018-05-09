@@ -9,12 +9,17 @@
     }
   },
   "rules": {
-    "object-curly-newline": ["error", { "multiline": true }],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "max-len": ["error", { "code": 100, "ignoreComments": true }],
     "arrow-parens": ["error", "as-needed"],
     "jsx-quotes": ["error", "prefer-single"],
     "linebreak-style": 0,
     "function-paren-newline": ["error", "consistent"],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    // TODO: maybe look into accessibility at some point
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/anchor-is-valid": 0
   },
   "globals": {
     "document": true,
@@ -22,5 +27,8 @@
     "localStorage": true,
     "Headers": true,
     "window": true
+  },
+  "env": {
+    "jest": true
   }
 }

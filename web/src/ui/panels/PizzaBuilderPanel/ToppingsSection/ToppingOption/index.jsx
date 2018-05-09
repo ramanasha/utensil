@@ -7,7 +7,7 @@ import { pizzaBuilderSelectors, pizzaBuilderActions } from 'data/pizzaBuilder';
 import ToppingSideButton from './ToppingSideButton';
 
 const ToppingOption = ({ name, selected, whole, toggle }) => (
-  <div className="topping-option">
+  <div className='topping-option'>
     <div
       className={`topping-name${selected ? ' selected' : ''}`}
       onClick={toggle}
@@ -15,10 +15,10 @@ const ToppingOption = ({ name, selected, whole, toggle }) => (
       {name}
     </div>
     {selected && whole ?
-      <div className="topping-side-select">
-        <ToppingSideButton name={name} side="left" icon="◐" />
-        <ToppingSideButton name={name} side="whole" icon="◉" />
-        <ToppingSideButton name={name} side="right" icon="◑" />
+      <div className='topping-side-select'>
+        <ToppingSideButton name={name} side='left' icon='◐' />
+        <ToppingSideButton name={name} side='whole' icon='◉' />
+        <ToppingSideButton name={name} side='right' icon='◑' />
       </div>
       : null}
   </div>

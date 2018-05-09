@@ -12,7 +12,7 @@ import OrganizedGroupPreview from './OrganizedGroupPreview';
 import './styles.scss';
 
 const OrganizedGroupSummary = ({ groups }) => (
-  <div className="organized-group-summary">
+  <div className='organized-group-summary'>
     <PanelHeader name="Groups You're Ordering For" />
     {groups.map(group => <OrganizedGroupPreview key={group.groupId} {...group} />)}
   </div>

@@ -9,13 +9,13 @@ export default function OrganizedGroupPreview({
   timeStarted, durationMinutes,
 }) {
   return (
-    <div className="organized-group-preview">
-      <div className="description">
-        <div className="restaurant-name">{restaurantName}</div>
-        <div className="type">{type.charAt(0).toUpperCase()}{type.slice(1)}</div>
+    <div className='organized-group-preview'>
+      <div className='description'>
+        <div className='restaurant-name'>{restaurantName}</div>
+        <div className='type'>{type.charAt(0).toUpperCase()}{type.slice(1)}</div>
       </div>
       <OrderTimer timeStarted={timeStarted} duration={durationMinutes} concise />
-      <Link to={`/group-details/${groupId}`} className="button">View Details</Link>
+      <Link to={`/group-details/${groupId}`} className='button'>View Details</Link>
     </div>
   );
 }

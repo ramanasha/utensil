@@ -10,7 +10,7 @@ import CredentialsPanel from '../panels/CredentialsPanel';
 import './column.scss';
 
 const RightColumn = ({ loggedIn }) => (
-  <div className="column-right">
+  <div className='column-right'>
     <RestaurantPanel />
     {loggedIn ?
       <CredentialsPanel />

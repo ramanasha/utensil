@@ -44,13 +44,13 @@ class PendingGroupBox extends React.Component {
     }
 
     return (
-      <div className="pending-group-box">
-        <div className="box-title">{restaurantName}</div>
-        <div className="group-type info">
+      <div className='pending-group-box'>
+        <div className='box-title'>{restaurantName}</div>
+        <div className='group-type info'>
           {type === 'delivery or carryout' ? 'Delivery or Carryout' : 'Outing'}
         </div>
-        <div className="info">{votes} of {minPeople} people in queue</div>
-        <div className="time-elapsed" style={{ color: timeColor }}>
+        <div className='info'>{votes} of {minPeople} people in queue</div>
+        <div className='time-elapsed' style={{ color: timeColor }}>
           Suggested
           {timeElapsed > 0 ? ` ${timeElapsed} ` : ' less than a '}
           {timeElapsed <= 1 ? 'minute ' : 'minutes '}

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import classNames from 'classnames';
 
 import { toJS } from 'common/utils';
@@ -27,8 +26,8 @@ const NavBar = ({ currentTab, inactiveTabs, onChangeTab }) => (
       return (
         <div
           className={className}
-          key={index}
-          onClick={() => { if (!inactive) { onChangeTab(name) } }}
+          key={index} // eslint-disable-line react/no-array-index-key
+          onClick={() => { if (!inactive) { onChangeTab(name); } }}
         >
           <i className={`fas fa-${icon}`} />
           <div className='tab-label'>{name}</div>
@@ -37,6 +36,12 @@ const NavBar = ({ currentTab, inactiveTabs, onChangeTab }) => (
     })}
   </div>
 );
+
+NavBar.propTypes = {
+  currentTab: PropTypes.string.isRequired,
+  inactiveTabs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onChangeTab: PropTypes.func.isRequired,
+};
 
 const { getCurrentTab } = mobileSelectors;
 const { switchTab } = mobileActions;
@@ -53,5 +58,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(toJS(NavBar));

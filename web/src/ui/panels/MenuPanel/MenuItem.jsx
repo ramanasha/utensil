@@ -20,18 +20,18 @@ function MenuItem({
       className={classNames('menu-item', { order: !viewOnly })}
       onClick={!viewOnly && desktop ? () => onClick(itemId) : undefined}
     >
-      <div className="menu-item-info">
-        <div className="menu-item-name">{name}</div>
-        <div className="menu-item-description">{description}</div>
+      <div className='menu-item-info'>
+        <div className='menu-item-name'>{name}</div>
+        <div className='menu-item-description'>{description}</div>
       </div>
-      <div className="menu-item-action">
-        <div className="menu-item-price">${price.toFixed(2)}</div>
+      <div className='menu-item-action'>
+        <div className='menu-item-price'>${price.toFixed(2)}</div>
         {!viewOnly ?
           <div
-            className="menu-item-click-label-container"
+            className='menu-item-click-label-container'
             onClick={desktop ? undefined : () => onClick(itemId)}
           >
-            <div className="menu-item-click-label">
+            <div className='menu-item-click-label'>
               {pizza ? 'Build' : 'Add'}
             </div>
           </div>

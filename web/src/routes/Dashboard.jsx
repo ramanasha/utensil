@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Responsive from 'react-responsive';
 
-import { Mobile, Default } from 'common/components';
+import { Phone, Default } from 'common/components';
 
 import { groupSelectors } from 'data/groups';
 import { mobileSelectors } from 'data/mobile';
@@ -28,7 +27,7 @@ const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => {
       </Fragment>
     ),
     'Your Order': MyOrderPanel,
-    'Account': MyAccountPanel,
+    Account: MyAccountPanel,
   }[currentTab];
 
   return (
@@ -42,10 +41,10 @@ const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => {
           <OrganizedGroupSummaryPanel />
           : null}
       </Default>
-      <Mobile>
+      <Phone>
         <NavBar />
         <TabComponent />
-      </Mobile>
+      </Phone>
     </Fragment>
   );
 };

@@ -16,14 +16,14 @@ function ActiveGroupBox({
   joinOrder,
 }) {
   return (
-    <div className="active-group-box">
-      <div className="box-title">{restaurantName}</div>
-      <div className="info order-type">{_.startCase(type)}</div>
-      <div className="info">{orders} {orders > 1 ? 'people' : 'person'} in group</div>
+    <div className='active-group-box'>
+      <div className='box-title'>{restaurantName}</div>
+      <div className='info order-type'>{_.startCase(type)}</div>
+      <div className='info'>{orders} {orders > 1 ? 'people' : 'person'} in group</div>
       <OrderTimer timeStarted={timeStarted} duration={durationMinutes} />
       {loggedIn ?
-        <div className="toolbar">
-          <Link to={`/join/${groupId}`} className="button" onClick={joinOrder}>Join Order</Link>
+        <div className='toolbar'>
+          <Link to={`/join/${groupId}`} className='button' onClick={joinOrder}>Join Order</Link>
         </div>
         : null}
     </div>

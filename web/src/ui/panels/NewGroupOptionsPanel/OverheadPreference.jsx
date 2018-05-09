@@ -5,23 +5,23 @@ import { connect } from 'react-redux';
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
 const OverheadPreference = ({ value, onChange }) => (
-  <div className="order-option">
-    <div className="order-option-heading">
+  <div className='order-option'>
+    <div className='order-option-heading'>
       How much do you need to cover delivery and other costs?
     </div>
-    <div className="order-option-heading">
+    <div className='order-option-heading'>
       Don&apos;t include meal tax.
     </div>
     <input
-      className="overhead-percentage"
-      type="range"
-      min="0"
-      max="20"
-      step="1"
+      className='overhead-percentage'
+      type='range'
+      min='0'
+      max='20'
+      step='1'
       value={value}
       onChange={onChange}
     />
-    <div className="range-label">{value}%</div>
+    <div className='range-label'>{value}%</div>
   </div>
 );
 

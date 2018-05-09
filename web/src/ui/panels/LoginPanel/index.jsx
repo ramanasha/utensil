@@ -32,10 +32,10 @@ class LoginPanel extends React.Component {
     const { loading, error, onSubmit } = this.props;
 
     return (
-      <div className="login-panel">
-        <PanelHeader name="Log into Consamables" />
-        <form className="login" onSubmit={onSubmit}>
-          <div className="login-fields">
+      <div className='login-panel'>
+        <PanelHeader name='Log into Consamables' />
+        <form className='login' onSubmit={onSubmit}>
+          <div className='login-fields'>
             <UsernameField />
             <PasswordField />
           </div>
@@ -43,12 +43,12 @@ class LoginPanel extends React.Component {
             <Spinner />
             : <SubmitButton text='Sign in' />}
           {error ?
-            <div className="error">{error}</div>
+            <div className='error'>{error}</div>
             : null}
         </form>
-        <div className="create-account">
+        <div className='create-account'>
           <div>Don&apos;t have an account yet?</div>
-          <Link to="/login/create" className="button">Get started</Link>
+          <Link to='/login/create' className='button'>Get started</Link>
         </div>
       </div>
     );
@@ -60,6 +60,7 @@ LoginPanel.propTypes = {
   error: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
   exitLogin: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 LoginPanel.defaultProps = { error: '' };

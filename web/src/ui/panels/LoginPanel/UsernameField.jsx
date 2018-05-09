@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { loginSelectors, loginActions } from 'data/login';
 
 const UsernameField = ({ value, onChange }) => (
-  <div className="login-field">
-    <div className="credential-label">Email</div>
-    <input type="text" name="username" value={value} onChange={onChange} />
+  <div className='login-field'>
+    <div className='credential-label'>Email</div>
+    <input type='text' name='username' value={value} onChange={onChange} />
   </div>
 );
 

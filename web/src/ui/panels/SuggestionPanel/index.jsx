@@ -15,13 +15,13 @@ import SubmitSuggestion from './SubmitSuggestion';
 import './styles.scss';
 
 const SuggestionPanel = ({ id, name, askDriving, valid }) => (
-  <div className="suggestion-panel">
-    <div className="suggestion-header">
+  <div className='suggestion-panel'>
+    <div className='suggestion-header'>
       <CloseButton />
-      <PanelHeader name="Suggest an Order" />
-      <div className="restaurant-name">{name}</div>
+      <PanelHeader name='Suggest an Order' />
+      <div className='restaurant-name'>{name}</div>
     </div>
-    <div className="suggestion-options">
+    <div className='suggestion-options'>
       <OrderTypePreference />
       {askDriving ?
         <DrivingPreference />

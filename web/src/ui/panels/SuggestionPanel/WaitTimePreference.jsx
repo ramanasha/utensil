@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import { suggestedOrderSelectors, suggestedOrderActions } from 'data/suggestedOrder';
 
 const WaitTimePreference = ({ value, onChange }) => (
-  <div className="suggestion-option">
-    <div className="suggestion-option-heading">How long can you wait?</div>
+  <div className='suggestion-option'>
+    <div className='suggestion-option-heading'>How long can you wait?</div>
     <input
-      className="wait-time"
-      type="range"
-      min="10"
-      max="120"
-      step="5"
+      className='wait-time'
+      type='range'
+      min='10'
+      max='120'
+      step='5'
       value={value}
       onChange={onChange}
     />
-    <div className="range-label">{value} minutes</div>
+    <div className='range-label'>{value} minutes</div>
   </div>
 );
 
