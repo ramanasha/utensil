@@ -45,6 +45,7 @@ MyAccountPanel.propTypes = {
   username: PropTypes.string.isRequired,
   logOut: PropTypes.func.isRequired,
   splitwiseAuth: PropTypes.bool.isRequired,
+  notifications: PropTypes.bool.isRequired,
 };
 
 const { getCurrentUsername, getSplitwiseAuth } = currentUserSelectors;
