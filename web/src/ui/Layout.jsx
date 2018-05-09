@@ -1,11 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import Responsive from 'react-responsive';
+import { withRouter, Route } from 'react-router';
 import qs from 'query-string';
+import classNames from 'classnames';
 
 import { toJS } from 'common/utils';
+import { Mobile, Default } from 'common/components';
 
 import { loginActions } from 'data/login';
 import { groupActions } from 'data/groups';
@@ -22,10 +23,6 @@ import Title from './columns/CenterColumn/Title';
 import NavBar from './mobile/NavBar';
 
 import './master.scss';
-
-import breakpoints from 'common/styles/_media.scss';
-
-const mobileMax = parseInt(breakpoints.mobileMax);
 
 class Layout extends Component {
   componentDidMount() {
@@ -54,34 +51,27 @@ class Layout extends Component {
   }
 
   render() {
-    const { location, loggedIn } = this.props;
+    const { location: { pathname } } = this.props;
 
-    const centerFocus = !/^\/(menu\/[0-9]+)?$/.test(location.pathname);
-    const style = centerFocus ? { minWidth: '30em', padding: '0 15em' } : null;
+    const overlaid = !/^\/(menu\/[0-9]+)?$/.test(pathname);
+    const noNav = pathname !== '/';
 
     return (
-      <Responsive maxWidth={mobileMax}>
-        {matches => (
-          <div className='app' style={matches ? null : style}>
-            {matches ?
-              <Fragment>
-                <Title terse />
-                <Routes />
-                {loggedIn ? <NavBar /> : null}
-              </Fragment>
-              :
-              <Fragment>
-                <LeftColumn />
-                <CenterColumn>
-                  <Routes />
-                </CenterColumn>
-                <RightColumn />
-                <Overlay centerFocus={centerFocus} />
-              </Fragment>
-            }
-          </div>
-        )}
-      </Responsive>
+      <div className={classNames('app', { overlaid, 'no-nav': noNav })}>
+        <Mobile>
+          <Title terse />
+          <Routes />
+          <Route exact path='/' component={NavBar} />
+        </Mobile>
+        <Default>
+          <LeftColumn />
+          <CenterColumn>
+            <Routes />
+          </CenterColumn>
+          <RightColumn />
+          <Overlay centerFocus={overlaid} />
+        </Default>
+      </div>
     );
   }
 }

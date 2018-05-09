@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 
+import { Mobile, Default } from 'common/components';
+
 import { groupSelectors } from 'data/groups';
 import { mobileSelectors } from 'data/mobile';
 
@@ -16,47 +18,37 @@ import ActiveGroupPanel from '../ui/panels/ActiveGroupPanel';
 import PendingGroupPanel from '../ui/panels/PendingGroupPanel';
 import NavBar from '../ui/mobile/NavBar';
 
-import breakpoints from 'common/styles/_media';
+const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => {
+  const TabComponent = {
+    Restaurants: RestaurantPanel,
+    Groups: () => (
+      <Fragment>
+        <ActiveGroupPanel />
+        <PendingGroupPanel />
+      </Fragment>
+    ),
+    'Your Order': MyOrderPanel,
+    'Account': MyAccountPanel,
+  }[currentTab];
 
-const mobileMax = parseInt(breakpoints.mobileMax);
-
-const Dashboard = ({ hasJoinedGroup, hasOrganizedGroup, currentTab }) => (
-  <Responsive maxWidth={mobileMax}>
-    {matches => {
-      if (!matches) {
-        return (
-          <Fragment>
-            {hasJoinedGroup ?
-              <MyOrderSummaryPanel />
-              : null}
-            <Helper />
-            {hasOrganizedGroup ?
-              <OrganizedGroupSummaryPanel />
-              : null}
-          </Fragment>
-        );
-      }
-      const TabComponent = {
-        Restaurants: RestaurantPanel,
-        Groups: () => (
-          <Fragment>
-            <ActiveGroupPanel />
-            <PendingGroupPanel />
-          </Fragment>
-        ),
-        'Your Order': MyOrderPanel,
-        'Account': MyAccountPanel,
-      }[currentTab];
-
-      return (
-        <Fragment>
-          <NavBar />
-          <TabComponent />
-        </Fragment>
-      );
-    }}
-  </Responsive>
-);
+  return (
+    <Fragment>
+      <Default>
+        {hasJoinedGroup ?
+          <MyOrderSummaryPanel />
+          : null}
+        <Helper />
+        {hasOrganizedGroup ?
+          <OrganizedGroupSummaryPanel />
+          : null}
+      </Default>
+      <Mobile>
+        <NavBar />
+        <TabComponent />
+      </Mobile>
+    </Fragment>
+  );
+};
 
 Dashboard.propTypes = {
   hasJoinedGroup: PropTypes.bool.isRequired,

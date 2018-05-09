@@ -16,7 +16,7 @@ const MenuPanel = ({ name, menu, viewOnly }) => (
   <div className="menu-panel">
     <div className="menu-header">
       <CloseButton />
-      <div className="menu-name">{`${name} Menu`}</div>
+      <div className="menu-name">{viewOnly ? `${name} Menu` : `Ordering from ${name}`}</div>
     </div>
     <div className="scrollable">
       {menu.map(menuSection => (

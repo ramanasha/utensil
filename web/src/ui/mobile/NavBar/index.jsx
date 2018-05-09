@@ -1,34 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+import classNames from 'classnames';
+
+import { toJS } from 'common/utils';
 
 import { mobileSelectors, mobileActions } from 'data/mobile';
+import { groupSelectors } from 'data/groups';
 
 import './styles.scss';
 
-const tabs = ['Restaurants', 'Groups', 'Your Order', 'Account'];
-const icons = ['utensils', 'users', 'shopping-bag', 'user-circle']
+const tabs = [
+  { name: 'Restaurants', icon: 'utensils' },
+  { name: 'Groups', icon: 'users' },
+  { name: 'Your Order', icon: 'shopping-bag' },
+  { name: 'Account', icon: 'user-circle' },
+];
 
-const NavBar = ({ currentTab, onChangeTab }) => (
+const NavBar = ({ currentTab, inactiveTabs, onChangeTab }) => (
   <div className='mobile-bottom-navbar'>
-    {tabs.map((tab, index) => (
-      <div
-        className={`mobile-bottom-navbar-tab${currentTab === tab ? ' selected' : ''}`}
-        key={index}
-        onClick={() => onChangeTab(tab)}
-      >
-        <i className={`fas fa-${icons[index]}`} />
-        <div className='tab-label'>{tab}</div>
-      </div>
-    ))}
+    {tabs.map(({ name, icon }, index) => {
+      const inactive = inactiveTabs.includes(name);
+      const selected = currentTab === name;
+      const className = classNames(['mobile-bottom-navbar-tab', { inactive, selected }]);
+      return (
+        <div
+          className={className}
+          key={index}
+          onClick={() => { if (!inactive) { onChangeTab(name) } }}
+        >
+          <i className={`fas fa-${icon}`} />
+          <div className='tab-label'>{name}</div>
+        </div>
+      );
+    })}
   </div>
 );
 
 const { getCurrentTab } = mobileSelectors;
 const { switchTab } = mobileActions;
+const { getMyOrders } = groupSelectors;
 
 const mapStateToProps = state => ({
   currentTab: getCurrentTab(state),
+  inactiveTabs: getMyOrders(state).length ? [] : ['Your Order'],
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -38,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NavBar);
+)(toJS(NavBar));

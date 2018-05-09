@@ -1,15 +1,26 @@
 {
   "extends": "airbnb",
+  "plugins": ["react", "import", "jsx-a11y"],
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.dev.js"
+      }
+    }
   },
   "rules": {
     "object-curly-newline": ["error", { "multiline": true }],
     "arrow-parens": ["error", "as-needed"],
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "linebreak-style": 0,
+    "function-paren-newline": ["error", "consistent"],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
   "globals": {
     "document": true,
-    "fetch": true
+    "fetch": true,
+    "localStorage": true,
+    "Headers": true,
+    "window": true
   }
 }

@@ -4,7 +4,6 @@
 .active-group-panel {
   @include panel;
   flex: 1 1 auto;
-  min-height: 15em;
 
   @include tablet-or-desktop {
     margin-top: $margin;

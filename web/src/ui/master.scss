@@ -18,9 +18,14 @@ html {
       
       @include tablet-or-desktop {
         padding: 0 20em;
+
+        &.overlaid {
+          min-width: 30em;
+          padding: 0 15em;
+        }
       }
 
-      @include mobile {
+      @include phone {
         display: flex;
         position: fixed;
         width: 100%;
@@ -28,9 +33,13 @@ html {
         flex-direction: column;
         height: calc(100% - 3.5em);
         padding-bottom: 3.5em;
+
+        &.no-nav {
+          height: 100%;
+        }
       }
 
-      @include small-mobile {
+      @include small-phone {
         font-size: 0.9em;
       }
     }

@@ -42,11 +42,10 @@
   max-width: 50em;
   z-index: 2;
   align-self: center;
-  min-width: 25em;
+  min-width: 20em;
 
-  @include mobile {
+  @include phone {
     width: 95%;
-    min-width: 20em;
   }
 }
 

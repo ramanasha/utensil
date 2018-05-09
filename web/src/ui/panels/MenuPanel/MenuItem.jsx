@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
+
+import { Mobile, Desktop } from 'common/components';
 
 import { currentOrderActions } from 'data/currentOrder';
 import { pizzaBuilderActions } from 'data/pizzaBuilder';
@@ -12,10 +15,10 @@ function MenuItem({
   const pizza = data && 'pizza' in data;
   const onClick = pizza ? onBuildClick : onAddClick;
 
-  return (
+  const render = desktop => (
     <div
-      className={`menu-item${!viewOnly ? ' order' : ''}`}
-      onClick={!viewOnly ? () => onClick(itemId) : null}
+      className={classNames('menu-item', { order: !viewOnly })}
+      onClick={!viewOnly && desktop ? () => onClick(itemId) : undefined}
     >
       <div className="menu-item-info">
         <div className="menu-item-name">{name}</div>
@@ -24,7 +27,10 @@ function MenuItem({
       <div className="menu-item-action">
         <div className="menu-item-price">${price.toFixed(2)}</div>
         {!viewOnly ?
-          <div className="menu-item-click-label-container">
+          <div
+            className="menu-item-click-label-container"
+            onClick={desktop ? undefined : () => onClick(itemId)}
+          >
             <div className="menu-item-click-label">
               {pizza ? 'Build' : 'Add'}
             </div>
@@ -32,6 +38,17 @@ function MenuItem({
           : null}
       </div>
     </div>
+  );
+
+  return (
+    <Fragment>
+      <Mobile>
+        {render(false)}
+      </Mobile>
+      <Desktop>
+        {render(true)}
+      </Desktop>
+    </Fragment>
   );
 }
 
