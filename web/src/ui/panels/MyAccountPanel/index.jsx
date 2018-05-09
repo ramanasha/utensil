@@ -18,11 +18,11 @@ const MyAccountPanel = ({ username, logOut, splitwiseAuth, notifications }) => (
       </div>
       <button className='button'>Change Username</button>
       <button className='button'>Change Password</button>
-      <button className='button sign-out' onClick={logOut}>Sign out</button>
+      <button className='button sign-out' onClick={logOut}>Sign Out</button>
     </div>
     <div className={`account-section ${splitwiseAuth ? 'ok' : 'alert'}`}>
       <div className='account-section-header'>
-        You are {!splitwiseAuth ? 'not' : ''} authenticated with Splitwise.
+        You are {!splitwiseAuth ? 'not yet' : ''} authenticated with Splitwise.
       </div>
       {splitwiseAuth ?
         <button className='button'>View Debts</button>
@@ -31,7 +31,7 @@ const MyAccountPanel = ({ username, logOut, splitwiseAuth, notifications }) => (
     </div>
     <div className={`account-section ${notifications ? 'ok' : 'alert'}`}>
       <div className='account-section-header'>
-        You have {!notifications ? 'not' : ''} set up text notifications.
+        You have {!notifications ? 'not yet' : ''} set up text notifications.
       </div>
       {notifications ?
         <button className='button'>Change Settings</button>
