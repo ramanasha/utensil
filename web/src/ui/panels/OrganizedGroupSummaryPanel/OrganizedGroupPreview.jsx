@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
-import { OrderTimer } from 'common/components';
+import { LinkButton, OrderTimer } from 'common/components';
 
 export default function OrganizedGroupPreview({
   groupId, restaurantName, type,
@@ -15,7 +14,7 @@ export default function OrganizedGroupPreview({
         <div className='type'>{type.charAt(0).toUpperCase()}{type.slice(1)}</div>
       </div>
       <OrderTimer timeStarted={timeStarted} duration={durationMinutes} concise />
-      <Link to={`/group-details/${groupId}`} className='button'>View Details</Link>
+      <LinkButton text='View Details' to={`/group-details/${groupId}`} />
     </div>
   );
 }

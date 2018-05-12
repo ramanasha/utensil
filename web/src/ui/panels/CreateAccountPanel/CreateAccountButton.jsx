@@ -2,19 +2,19 @@ import { connect } from 'react-redux';
 
 import { loginActions } from 'data/login';
 
-import { SubmitButton } from 'common/components';
+import { Button } from 'common/components';
 
 const { submitNewAccount } = loginActions;
 
 const mapStateToProps = () => ({ text: 'Create account' });
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: data => dispatch(submitNewAccount(data)),
+  onClick: data => dispatch(submitNewAccount(data)),
 });
 
 const CreateAccountButton = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SubmitButton);
+)(Button);
 
 export default CreateAccountButton;

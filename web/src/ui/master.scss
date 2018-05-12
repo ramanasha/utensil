@@ -3,7 +3,6 @@
 @import '~common/styles/media';
 
 @import '~common/components/range';
-@import '~common/components/button';
 
 html {
   body {
@@ -46,10 +45,12 @@ html {
       .mobile-panel-container {
         display: flex;
         flex-direction: column;
-        flex: 1 0 auto;
+        flex: 1 0 0;
 
         @include phone-landscape {
           flex-direction: row;
+          justify-content: center;
+          margin-top: 0.2em;
         }
       }
     }

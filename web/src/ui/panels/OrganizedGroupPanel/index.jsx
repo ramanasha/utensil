@@ -8,7 +8,7 @@ import { parseId, toJS } from 'common/utils';
 
 import { groupSelectors, groupActions } from 'data/groups';
 
-import { CloseButton, OrderTimer } from 'common/components';
+import { Button, CloseButton, OrderTimer } from 'common/components';
 import IndividualOrder from './IndividualOrder';
 
 import './styles.scss';
@@ -39,17 +39,15 @@ function OrganizedGroupPanel({
           <div className='controls'>
             <div className='buttons'>
               {ended ?
-                <button
-                  className='button'
+                <Button
+                  text={active ? 'Mark as ordered' : 'Mark complete'}
                   onClick={active ?
                     () => markGroupOrdered(groupId) :
                     () => markGroupComplete(groupId)
                   }
-                >
-                  {active ? 'Mark as ordered' : 'Mark complete'}
-                </button>
+                />
                 : null}
-              <button className='button'>Message group members</button>
+              <Button text='Message group members' />
             </div>
           </div>
         </div>

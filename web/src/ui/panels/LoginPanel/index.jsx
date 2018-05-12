@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
 
 import { loginSelectors, loginActions } from 'data/login';
 import { currentUserSelectors } from 'data/currentUser';
 
-import { PanelHeader, Spinner, SubmitButton } from 'common/components';
+import { LinkButton, Button, PanelHeader, Spinner } from 'common/components';
 import UsernameField from './UsernameField';
 import PasswordField from './PasswordField';
 
@@ -41,14 +40,14 @@ class LoginPanel extends React.Component {
           </div>
           {loading ?
             <Spinner />
-            : <SubmitButton text='Sign in' />}
+            : <Button text='Sign in' />}
           {error ?
             <div className='error'>{error}</div>
             : null}
         </form>
         <div className='create-account'>
           <div>Don&apos;t have an account yet?</div>
-          <Link to='/login/create' className='button'>Get started</Link>
+          <LinkButton text='Get started' to='/login/create' />
         </div>
       </div>
     );

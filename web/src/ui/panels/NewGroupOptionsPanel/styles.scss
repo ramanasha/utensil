@@ -5,6 +5,12 @@
   flex: 0 0 auto;
   padding-bottom: 0.5em;
 
+  @include phone-landscape {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-left: 0;
+  }
+
   .order-options {
     padding: 0.4em;
     font-size: 0.8em;

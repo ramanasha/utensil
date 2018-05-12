@@ -6,7 +6,7 @@ import { toJS } from 'common/utils';
 
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
-import { PanelHeader } from 'common/components';
+import { Button, PanelHeader } from 'common/components';
 import OrderItem from './OrderItem';
 
 import './styles.scss';
@@ -24,9 +24,10 @@ function CurrentOrderPanel({
         </div>
         <div className='continue'>
           {stage === 'choose' ?
-            <button className='button' onClick={onContinueClick}>Continue</button>
+            <Button text='Continue' onClick={onContinueClick} />
             :
-            <button className='button' onClick={onBackClick}>Return to Menu</button>}
+            <Button text='Return to Menu' onClick={onBackClick} />
+          }
           <div className='order-total'>Total: ${orderTotal.toFixed(2)}</div>
         </div>
       </div>

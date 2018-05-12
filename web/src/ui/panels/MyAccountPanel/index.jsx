@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { PanelHeader } from 'common/components';
+import { Button, PanelHeader } from 'common/components';
 
 import { currentUserSelectors } from 'data/currentUser';
 import { loginActions } from 'data/login';
@@ -16,17 +16,17 @@ const MyAccountPanel = ({ username, logOut, splitwiseAuth, notifications }) => (
       <div className='account-section-header'>
         Signed in as <span className='current-user'>{username}</span>
       </div>
-      <button className='button'>Change Username</button>
-      <button className='button'>Change Password</button>
-      <button className='button sign-out' onClick={logOut}>Sign Out</button>
+      <Button text='Change Username' />
+      <Button text='Change Password' />
+      <Button text='Sign Out' onClick={logOut} />
     </div>
     <div className={`account-section ${splitwiseAuth ? 'ok' : 'alert'}`}>
       <div className='account-section-header'>
         You are {!splitwiseAuth ? 'not yet' : ''} authenticated with Splitwise.
       </div>
       {splitwiseAuth ?
-        <button className='button'>View Debts</button>
-        : <button className='button'>Link Account</button>
+        <Button text='View Debts' />
+        : <Button text='Link Account' />
       }
     </div>
     <div className={`account-section ${notifications ? 'ok' : 'alert'}`}>
@@ -34,8 +34,8 @@ const MyAccountPanel = ({ username, logOut, splitwiseAuth, notifications }) => (
         You have {!notifications ? 'not yet' : ''} set up text notifications.
       </div>
       {notifications ?
-        <button className='button'>Change Settings</button>
-        : <button className='button'>Set Up</button>
+        <Button text='Change Settings' />
+        : <Button text='Set Up' />
       }
     </div>
   </div>

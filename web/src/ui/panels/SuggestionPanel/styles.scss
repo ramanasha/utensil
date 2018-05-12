@@ -33,6 +33,10 @@
       flex-direction: column;
       align-items: center;
 
+      @include phone-landscape {
+        height: 8em;
+      }
+
       .suggestion-option-heading {
         font-weight: bold;
         color: $title-color;
@@ -50,7 +54,7 @@
       }
 
       .wait-time {
-        width: 180%;
+        width: 120%;
       }
 
       .min-people {

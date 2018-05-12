@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Button } from 'common/components';
+
 import { currentUserSelectors } from 'data/currentUser';
 import { loginActions } from 'data/login';
 
@@ -13,7 +15,7 @@ const CredentialsPanel = ({ username, logOut }) => (
       <div>Currently signed in as</div>
       <div className='email'>{username}</div>
     </div>
-    <button className='button' onClick={logOut}>Sign out</button>
+    <Button text='Sign out' onClick={logOut} />
   </div>
 );
 

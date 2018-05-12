@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { loginSelectors } from 'data/login';
 
-import { PanelHeader, Spinner } from 'common/components';
+import { LinkButton, PanelHeader, Spinner } from 'common/components';
 import UsernameField from '../LoginPanel/UsernameField';
 import PasswordCreation from './PasswordCreation';
 import CreateAccountButton from './CreateAccountButton';
@@ -29,7 +28,7 @@ const CreateAccountPanel = ({ loading, error }) => (
     </div>
     <div className='goto-login'>
       <div>Already have an account?</div>
-      <Link to='/login' className='button'>Log in</Link>
+      <LinkButton text='Log in' to='/login' />
     </div>
   </div>
 );
