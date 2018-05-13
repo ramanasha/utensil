@@ -12,18 +12,18 @@ import PendingGroupBox from './PendingGroupBox';
 import './styles.scss';
 
 const PendingGroupPanel = ({ groups }) => (
-  <div className="pending-group-panel">
-    <PanelHeader name="Pending Orders" />
+  <div className='pending-group-panel'>
+    <PanelHeader name='Pending Orders' />
     {groups.length > 0 ?
-      <div className="scrollable">
+      <div className='scrollable'>
         {groups.map(group => <PendingGroupBox key={group.groupId} {...group} />)}
       </div>
       :
-      <div className="empty-text-container">
-        <div className="empty-text">
+      <div className='empty-text-container'>
+        <div className='empty-text'>
           No pending orders right now!
         </div>
-        <div className="empty-text">
+        <div className='empty-text'>
           Feel free to suggest one of your own.
         </div>
       </div>}

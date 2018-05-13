@@ -9,9 +9,12 @@ export default builder => {
   }
 
   const hasExtraCheese = builder.get('cheese') === 'Extra Cheese';
-  const hasDiffSauce = builder.get('sauce') !== builder.get('defaultSauce') && builder.get('sauce') !== 'No Sauce';
+  const hasDiffSauce = builder.get('sauce') !== builder.get('defaultSauce')
+    && builder.get('sauce') !== 'No Sauce';
 
-  return (totalToppings + (hasDiffSauce ? 1 : 0) + (hasExtraCheese ? 1 : 0)) > builder.get('maxToppings');
+  totalToppings += (hasDiffSauce ? 1 : 0) + (hasExtraCheese ? 1 : 0);
+
+  return totalToppings > builder.get('maxToppings');
 };
 
 export const formatOrderItemData = data => {

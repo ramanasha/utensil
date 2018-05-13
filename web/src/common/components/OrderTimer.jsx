@@ -62,7 +62,7 @@ export default class OrderTimer extends React.Component {
     }
 
     return (
-      <div className="order-timer" style={style}>{message}</div>
+      <div className='order-timer' style={style}>{message}</div>
     );
   }
 }

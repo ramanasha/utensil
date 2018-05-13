@@ -1,5 +1,6 @@
 @import 'panel-measurements';
 @import '~common/styles/colors';
+@import '~common/styles/media';
 
 @mixin panel {
   background-color: $panel-color;
@@ -40,13 +41,12 @@
   @include panel;
   max-width: 50em;
   z-index: 2;
-  align-self: stretch;
+  align-self: center;
+  min-width: 20em;
 
-  @media (min-width: 1224px) {
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 20em;
-    align-self: center;
+  @include phone {
+    width: 95%;
+    max-height: 100%;
   }
 }
 

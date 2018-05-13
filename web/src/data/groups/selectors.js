@@ -27,8 +27,8 @@ export const getGroup = (state, groupId, groupType) => (
 export const getPendingGroups = state => state.getIn(['groups', 'pending'])
   .map(group => group.set(
     'restaurantName',
-    getGroupRestaurantName(state, group.get('groupId'), 'pending')),
-  ).toList();
+    getGroupRestaurantName(state, group.get('groupId'), 'pending'),
+  )).toList();
 
 export const anyPendingGroups = state => !!getPendingGroups(state).size;
 
@@ -46,10 +46,11 @@ export const getMyOrderItems = (state, orderId) => getMyOrder(state, orderId)
 export const getOrganizedGroups = state => state.getIn(['groups', 'organized']);
 
 export const getOrganizedGroupSummary = state => getOrganizedGroups(state)
-  .map(group => group
-    .set('restaurantName', getRestaurantName(state, group.get('restaurantId'), 'organized'))
-    .delete('orders'),
-  ).toList();
+  .map(group => group.set(
+    'restaurantName',
+    getRestaurantName(state, group.get('restaurantId'), 'organized'),
+  ).delete('orders'))
+  .toList();
 
 export const anyOrganizedGroups = state => !!getOrganizedGroups(state).size;
 
@@ -66,8 +67,7 @@ export const getActiveGroups = state => state
 export const getVisibleActiveGroups = (state, currentMoment) => getActiveGroups(state)
   .filter(group => moment(group.get('timeStarted'))
     .add(group.get('durationMinutes'), 'minutes')
-    .isAfter(currentMoment),
-  );
+    .isAfter(currentMoment));
 
 export const hasUserJoinedGroup = state => (
   !!getMyGroups(state).some((group, groupId) => !getOrganizedGroups(state).has(groupId))

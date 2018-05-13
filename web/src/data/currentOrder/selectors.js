@@ -11,9 +11,8 @@ export const getCurrentOrderStage = state => state.getIn(['currentOrder', 'stage
 
 export const getOrderItems = state => state.getIn(['currentOrder', 'items']);
 
-export const getOrderItemsToSubmit = state => getOrderItems(state).toList().map(
-  item => item.set('itemId', item.get('id')).delete('id'),
-);
+export const getOrderItemsToSubmit = state => getOrderItems(state).toList()
+  .map(item => item.set('itemId', item.get('id')).delete('id'));
 
 export const getOrderTotal = state => getOrderItems(state)
   .reduce(

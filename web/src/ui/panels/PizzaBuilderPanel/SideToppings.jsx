@@ -8,10 +8,10 @@ import { toJS } from 'common/utils';
 import { pizzaBuilderSelectors } from 'data/pizzaBuilder';
 
 const SideToppings = ({ side, toppings }) => (
-  <div className="side-toppings">
-    <div className="side-label">{_.startCase(side)}</div>
-    <div className="side-list">
-      {toppings.map(topping => <div className="side-topping" key={topping}>{topping}</div>)}
+  <div className='side-toppings'>
+    <div className='side-label'>{_.startCase(side)}</div>
+    <div className='side-list'>
+      {toppings.map(topping => <div className='side-topping' key={topping}>{topping}</div>)}
     </div>
   </div>
 );

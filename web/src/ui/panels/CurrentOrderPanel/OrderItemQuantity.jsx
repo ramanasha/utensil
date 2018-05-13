@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OrderItemQuantity = ({ value, onChange, onIncrement, onDecrement }) => (
-  <div className="order-item-quantity">
+  <div className='order-item-quantity'>
     {value > 1 ?
-      <div className="order-item-decrement" onClick={onDecrement}>-</div>
+      <div className='order-item-decrement' onClick={onDecrement}>-</div>
       : null}
-    <input type="number" value={value} onChange={onChange} />
-    <div className="order-item-increment" onClick={onIncrement}>+</div>
+    <input type='number' value={value} onChange={onChange} />
+    <div className='order-item-increment' onClick={onIncrement}>+</div>
   </div>
 );
 

@@ -1,0 +1,38 @@
+@import '~common/styles/panel';
+
+.my-account-panel {
+  @include panel;
+  padding: 0 $margin $margin;
+  align-items: center;
+
+  .panel-header {
+    margin-bottom: -$margin;
+  }
+
+  .account-section {
+    margin-top: $margin * 2;
+    text-align: center;
+
+    .account-section-header {
+      padding: .1em;
+    }
+
+    .current-user {
+      color: $title-color;
+      font-style: italic;
+    }
+
+    &.ok {
+      color: #008000;
+    }
+
+    &.alert {
+      color: #ff0000;
+    }
+  }
+
+  .button {
+    margin-top: .5em;
+    width: fit-content;
+  }
+}

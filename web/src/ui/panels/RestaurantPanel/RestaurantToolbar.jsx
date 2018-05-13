@@ -1,48 +1,33 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import { LinkButton } from 'common/components';
 
 import { currentUserSelectors } from 'data/currentUser';
 import { currentOrderActions } from 'data/currentOrder';
-import { suggestedOrderActions } from 'data/suggestedOrder';
 
-const RestaurantToolbar = ({ id, open, loggedIn, onStartClick, onSuggestClick }) => {
-  const menuButton = (
-    <Link to={`/menu/${id}`} className="button">View Menu</Link>
-  );
-
-  if (loggedIn && open) {
-    return (
-      <div className="toolbar">
-        {menuButton}
-        <Link to={`/start/${id}`} className="button" onClick={onStartClick}>
-          Start Order
-        </Link>
-        <Link to={`/suggest/${id}`} className="button" onClick={onSuggestClick}>
-          Suggest Order
-        </Link>
-      </div>
-    );
-  }
-  return (
-    <div className="toolbar">
-      {menuButton}
-    </div>
-  );
-};
+const RestaurantToolbar = ({ id, open, loggedIn, onStartClick }) => (
+  <div className='toolbar'>
+    <LinkButton text='View Menu' to={`/menu/${id}`} />
+    {loggedIn && open ?
+      <Fragment>
+        <LinkButton text='Start Order' to={`/start/${id}`} onClick={onStartClick} />
+        <LinkButton text='Suggest Order' to={`/suggest/${id}`} />
+      </Fragment>
+      : null}
+  </div>
+);
 
 RestaurantToolbar.propTypes = {
   id: PropTypes.number.isRequired,
   open: PropTypes.bool.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   onStartClick: PropTypes.func.isRequired,
-  onSuggestClick: PropTypes.func.isRequired,
 };
 
 const { isCurrentUserLoggedIn } = currentUserSelectors;
 const { startOrder } = currentOrderActions;
-const { openSuggestOrder } = suggestedOrderActions;
 
 const mapStateToProps = state => ({
   loggedIn: isCurrentUserLoggedIn(state),
@@ -50,7 +35,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, { restaurantId }) => ({
   onStartClick: () => dispatch(startOrder(restaurantId)),
-  onSuggestClick: () => dispatch(openSuggestOrder(restaurantId)),
 });
 
 export default connect(

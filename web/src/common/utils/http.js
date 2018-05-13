@@ -15,7 +15,5 @@ export const buildPostRequest = (data, auth = true) => ({
 
 export const buildGetRequest = () => ({
   method: 'GET',
-  headers: new Headers({
-    Authorization: `Bearer ${TokenManager.retrieveAccessToken()}`,
-  }),
+  headers: new Headers({ Authorization: `Bearer ${TokenManager.retrieveAccessToken()}` }),
 });

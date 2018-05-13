@@ -12,9 +12,9 @@ import RestaurantBox from './RestaurantBox';
 import './styles.scss';
 
 const RestaurantPanel = ({ restaurants }) => (
-  <div className="restaurant-panel">
-    <PanelHeader name="Restaurants Nearby" />
-    <div className="scrollable">
+  <div className='restaurant-panel'>
+    <PanelHeader name='Restaurants Nearby' />
+    <div className='scrollable'>
       {restaurants.map(result => <RestaurantBox key={result.restaurantId} {...result} />)}
     </div>
   </div>
@@ -29,9 +29,7 @@ RestaurantPanel.propTypes = {
 
 const { getRestaurants } = restaurantSelectors;
 
-const mapStateToProps = state => ({
-  restaurants: getRestaurants(state),
-});
+const mapStateToProps = state => ({ restaurants: getRestaurants(state) });
 
 export default connect(
   mapStateToProps,

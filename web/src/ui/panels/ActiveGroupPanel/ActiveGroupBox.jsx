@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import { currentUserSelectors } from 'data/currentUser';
 import { restaurantSelectors } from 'data/restaurants';
 import { currentOrderActions } from 'data/currentOrder';
 
-import { OrderTimer } from 'common/components';
+import { LinkButton, OrderTimer } from 'common/components';
 
 function ActiveGroupBox({
   groupId, loggedIn, restaurantName, type, orders,
@@ -16,14 +15,14 @@ function ActiveGroupBox({
   joinOrder,
 }) {
   return (
-    <div className="active-group-box">
-      <div className="box-title">{restaurantName}</div>
-      <div className="info order-type">{_.startCase(type)}</div>
-      <div className="info">{orders} {orders > 1 ? 'people' : 'person'} in group</div>
+    <div className='active-group-box'>
+      <div className='box-title'>{restaurantName}</div>
+      <div className='info order-type'>{_.startCase(type)}</div>
+      <div className='info'>{orders} {orders > 1 ? 'people' : 'person'} in group</div>
       <OrderTimer timeStarted={timeStarted} duration={durationMinutes} />
       {loggedIn ?
-        <div className="toolbar">
-          <Link to={`/join/${groupId}`} className="button" onClick={joinOrder}>Join Order</Link>
+        <div className='toolbar'>
+          <LinkButton text='Join Order' to={`/join/${groupId}`} onClick={joinOrder} />
         </div>
         : null}
     </div>

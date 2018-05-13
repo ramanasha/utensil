@@ -14,10 +14,10 @@ import ActiveGroupEmptyText from './ActiveGroupEmptyText';
 import './styles.scss';
 
 const ActiveGroupPanel = ({ groups }) => (
-  <div className="active-group-panel">
-    <PanelHeader name="Active Orders" />
+  <div className='active-group-panel'>
+    <PanelHeader name='Active Orders' />
     {groups.length ?
-      <div className="scrollable">
+      <div className='scrollable'>
         {groups.map(result => <ActiveGroupBox key={result.groupId} {...result} />)}
       </div>
       :

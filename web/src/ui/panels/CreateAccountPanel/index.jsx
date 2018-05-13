@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { loginSelectors } from 'data/login';
 
-import { PanelHeader, Spinner } from 'common/components';
+import { LinkButton, PanelHeader, Spinner } from 'common/components';
 import UsernameField from '../LoginPanel/UsernameField';
 import PasswordCreation from './PasswordCreation';
 import CreateAccountButton from './CreateAccountButton';
@@ -13,10 +12,10 @@ import CreateAccountButton from './CreateAccountButton';
 import '../LoginPanel/styles.scss';
 
 const CreateAccountPanel = ({ loading, error }) => (
-  <div className="login-panel">
-    <PanelHeader name="Create an Account" />
-    <div className="login">
-      <div className="login-fields">
+  <div className='login-panel'>
+    <PanelHeader name='Create an Account' />
+    <div className='login'>
+      <div className='login-fields'>
         <UsernameField />
         <PasswordCreation />
       </div>
@@ -24,12 +23,12 @@ const CreateAccountPanel = ({ loading, error }) => (
         <Spinner />
         : <CreateAccountButton />}
       {error ?
-        <div className="error">{error}</div>
+        <div className='error'>{error}</div>
         : null}
     </div>
-    <div className="goto-login">
+    <div className='goto-login'>
       <div>Already have an account?</div>
-      <Link to="/login" className="button">Log in</Link>
+      <LinkButton text='Log in' to='/login' />
     </div>
   </div>
 );

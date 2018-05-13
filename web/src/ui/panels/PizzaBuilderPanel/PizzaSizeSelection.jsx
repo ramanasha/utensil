@@ -34,9 +34,9 @@ const ConnectedPizzaSize = connect(
 )(PizzaSize);
 
 const PizzaSizeSelection = () => (
-  <div className="pizza-size">
-    <ConnectedPizzaSize size="half" />
-    <ConnectedPizzaSize size="whole" />
+  <div className='pizza-size'>
+    <ConnectedPizzaSize size='half' />
+    <ConnectedPizzaSize size='whole' />
   </div>
 );
 

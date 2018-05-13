@@ -5,24 +5,24 @@ import { connect } from 'react-redux';
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
 const OrderTypePreference = ({ value, onChange }) => (
-  <div className="order-option">
-    <div className="order-option-heading">How do you want to get food?</div>
-    <div className="order-option-choices">
-      <label htmlFor="delivery">
+  <div className='order-option'>
+    <div className='order-option-heading'>How do you want to get food?</div>
+    <div className='order-option-choices'>
+      <label htmlFor='delivery'>
         <input
-          id="delivery"
-          type="radio"
-          value="delivery"
+          id='delivery'
+          type='radio'
+          value='delivery'
           checked={value === 'delivery'}
           onChange={onChange}
         />
         Delivery
       </label>
-      <label htmlFor="carryout">
+      <label htmlFor='carryout'>
         <input
-          id="carryout"
-          type="radio"
-          value="carryout"
+          id='carryout'
+          type='radio'
+          value='carryout'
           checked={value === 'carryout'}
           onChange={onChange}
         />

@@ -6,15 +6,15 @@ import { groupSelectors } from 'data/groups';
 
 const ActiveGroupEmptyText = ({ anyPendingGroups, anyOrganizedGroups }) => (
   anyOrganizedGroups ?
-    <div className="empty-text-container">
-      <div className="empty-text">No one else is ordering!</div>
+    <div className='empty-text-container'>
+      <div className='empty-text'>No one else is ordering!</div>
     </div>
     :
-    <div className="empty-text-container">
-      <div className="empty-text">
+    <div className='empty-text-container'>
+      <div className='empty-text'>
         No one&apos;s ordering right now!
       </div>
-      <div className="empty-text">
+      <div className='empty-text'>
         {anyPendingGroups ? 'Join a pending order ' : 'Suggest an order '}
         or start one of your own.
       </div>

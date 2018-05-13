@@ -6,9 +6,9 @@ import TimeDisplay from './TimeDisplay';
 import RestaurantToolbar from './RestaurantToolbar';
 
 const RestaurantBox = ({ restaurantId, name, location, url, open, openTime, closeTime }) => (
-  <div className="restaurant-box">
-    <div className="box-title">{name}</div>
-    <div className="info">
+  <div className='restaurant-box'>
+    <div className='box-title'>{name}</div>
+    <div className='info'>
       {location.address.street}, {location.address.city}
     </div>
     <Link url={url} />

@@ -19,9 +19,9 @@ const NewGroupOptionsPanel = ({ loading, mode, id }) => {
     : <SubmitActivatedGroup id={id} />);
 
   return (
-    <div className="new-group-options-panel">
-      <PanelHeader name="Order Options" />
-      <div className="order-options">
+    <div className='new-group-options-panel'>
+      <PanelHeader name='Order Options' />
+      <div className='order-options'>
         <OrderTypePreference />
         <OrderDurationPreference />
         <OverheadPreference />

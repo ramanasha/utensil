@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
 
-import { loginSelectors } from 'data/login';
+import { loginSelectors, loginActions } from 'data/login';
 import { currentUserSelectors } from 'data/currentUser';
 
-import { PanelHeader, Spinner } from 'common/components';
+import { LinkButton, Button, PanelHeader, Spinner } from 'common/components';
 import UsernameField from './UsernameField';
 import PasswordField from './PasswordField';
-import LoginButton from './LoginButton';
 
 import './styles.scss';
 
@@ -30,26 +28,26 @@ class LoginPanel extends React.Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, onSubmit } = this.props;
 
     return (
-      <div className="login-panel">
-        <PanelHeader name="Log into Consamables" />
-        <div className="login">
-          <div className="login-fields">
+      <div className='login-panel'>
+        <PanelHeader name='Log into Consamables' />
+        <form className='login' onSubmit={onSubmit}>
+          <div className='login-fields'>
             <UsernameField />
             <PasswordField />
           </div>
           {loading ?
             <Spinner />
-            : <LoginButton />}
+            : <Button text='Sign in' />}
           {error ?
-            <div className="error">{error}</div>
+            <div className='error'>{error}</div>
             : null}
-        </div>
-        <div className="create-account">
+        </form>
+        <div className='create-account'>
           <div>Don&apos;t have an account yet?</div>
-          <Link to="/login/create" className="button">Get started</Link>
+          <LinkButton text='Get started' to='/login/create' />
         </div>
       </div>
     );
@@ -61,12 +59,14 @@ LoginPanel.propTypes = {
   error: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
   exitLogin: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 LoginPanel.defaultProps = { error: '' };
 
 const { isLoading, getError } = loginSelectors;
 const { isCurrentUserLoggedIn } = currentUserSelectors;
+const { submitLogin } = loginActions;
 
 const mapStateToProps = state => ({
   loading: isLoading(state),
@@ -76,6 +76,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   exitLogin: () => dispatch(push('/')),
+  onSubmit: e => {
+    e.preventDefault();
+    dispatch(submitLogin());
+  },
 });
 
 export default connect(

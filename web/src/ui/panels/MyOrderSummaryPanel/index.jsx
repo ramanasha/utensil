@@ -12,7 +12,7 @@ import MyOrderPreview from './MyOrderPreview';
 import './styles.scss';
 
 const MyOrderSummaryPanel = ({ orders }) => (
-  <div className="my-order-summary-panel">
+  <div className='my-order-summary-panel'>
     <PanelHeader name={`My Order${orders.size > 1 ? 's' : ''}`} />
     {orders.map(order => <MyOrderPreview key={order.orderId} {...order} />)}
   </div>

@@ -12,17 +12,17 @@ import SubmitNewOrder from './SubmitNewOrder';
 import './styles.scss';
 
 const NewOrderConfirmPanel = ({ loading, orderTotal, id }) => (
-  <div className="new-order-confirm-panel">
-    <PanelHeader name="Confirm Order" />
-    <div className="confirm-message">
+  <div className='new-order-confirm-panel'>
+    <PanelHeader name='Confirm Order' />
+    <div className='confirm-message'>
       Are you sure you want to add your order to this group?
     </div>
-    <div className="confirm-message">
+    <div className='confirm-message'>
       You&apos;ll be charged
-      <span className="order-total"> ${orderTotal} </span>
+      <span className='order-total'> ${orderTotal} </span>
       on Splitwise.
     </div>
-    <div className="reminder-text">
+    <div className='reminder-text'>
       (This includes overhead for tax, delivery, etc.)
     </div>
     {loading ?

@@ -1,4 +1,5 @@
 @import '~common/styles/colors';
+@import '~common/styles/media';
 @import '~common/styles/panel-measurements';
 
 .title {
@@ -10,7 +11,11 @@
   z-index: 2;
   pointer-events: none;
 
-  @media (min-width: 1224px) {
+  @include phone-landscape {
+    font-size: 1.5em;
+  }
+
+  @include tablet-or-desktop {
     position: absolute;
     top: 0;
     margin-bottom: auto;

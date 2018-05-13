@@ -2,32 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Button } from 'common/components';
+
 import { currentUserSelectors } from 'data/currentUser';
 import { loginActions } from 'data/login';
 
 import './styles.scss';
 
-const CredentialsPanel = ({ loggedIn, username, logOut }) => (
-  <div className="credentials-panel">
-    <div className="signed-in">
+const CredentialsPanel = ({ username, logOut }) => (
+  <div className='credentials-panel'>
+    <div className='signed-in'>
       <div>Currently signed in as</div>
-      <div className="email">{username}</div>
+      <div className='email'>{username}</div>
     </div>
-    <button className="button" onClick={logOut}>Sign out</button>
+    <Button text='Sign out' onClick={logOut} />
   </div>
 );
 
 CredentialsPanel.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
   logOut: PropTypes.func.isRequired,
 };
 
-const { isCurrentUserLoggedIn, getCurrentUsername } = currentUserSelectors;
+const { getCurrentUsername } = currentUserSelectors;
 const { logOut } = loginActions;
 
 const mapStateToProps = state => ({
-  loggedIn: isCurrentUserLoggedIn(state),
   username: getCurrentUsername(state),
 });
 

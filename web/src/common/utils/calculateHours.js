@@ -17,7 +17,7 @@ export default (currentTime, hours) => {
   if (afterMidnight(now)) {
     let yesterday = '';
     if (now.day() === 0) {
-      yesterday = weekdays[6];
+      yesterday = weekdays[weekdays.length - 1];
     } else {
       yesterday = weekdays[now.day() - 1];
     }

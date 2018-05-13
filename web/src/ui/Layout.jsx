@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import Responsive from 'react-responsive';
+import { withRouter, Route } from 'react-router';
 import qs from 'query-string';
+import classNames from 'classnames';
 
 import { toJS } from 'common/utils';
+import { Phone, Default } from 'common/components';
 
 import { loginActions } from 'data/login';
 import { groupActions } from 'data/groups';
@@ -19,7 +20,7 @@ import CenterColumn from './columns/CenterColumn';
 import RightColumn from './columns/RightColumn';
 import Overlay from './Overlay';
 import Title from './columns/CenterColumn/Title';
-import BottomNavBar from './mobile/BottomNavBar';
+import NavBar from './mobile/NavBar';
 
 import './master.scss';
 
@@ -50,38 +51,29 @@ class Layout extends Component {
   }
 
   render() {
-    const { location, loggedIn } = this.props;
+    const { location: { pathname } } = this.props;
 
-    const centerFocus = !/^\/(menu\/[0-9]+)?$/.test(location.pathname);
-    const style = centerFocus ? { minWidth: '30em', padding: '0 15em' } : null;
+    const overlaid = !/^\/(menu\/[0-9]+)?$/.test(pathname);
+    const noNav = pathname !== '/';
 
     return (
-      <Responsive minWidth={1224}>
-        {matches => (
-          <div className='app' style={matches ? style : null}>
-            {!matches ?
-              <meta
-                name='viewport'
-                content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-              />
-              : null
-            }
-            <Responsive minWidth={1224}>
-              <LeftColumn />
-              <CenterColumn>
-                <Routes />
-              </CenterColumn>
-              <RightColumn />
-              <Overlay centerFocus={centerFocus} />
-            </Responsive>
-            <Responsive maxWidth={1223}>
-              <Title terse />
-              <Routes />
-              {loggedIn ? <BottomNavBar /> : null}
-            </Responsive>
+      <div className={classNames('app', { overlaid, 'no-nav': noNav })}>
+        <Phone>
+          <Title terse />
+          <div className='mobile-panel-container'>
+            <Routes />
           </div>
-        )}
-      </Responsive>
+          <Route exact path='/' component={NavBar} />
+        </Phone>
+        <Default>
+          <LeftColumn />
+          <CenterColumn>
+            <Routes />
+          </CenterColumn>
+          <RightColumn />
+          <Overlay centerFocus={overlaid} />
+        </Default>
+      </div>
     );
   }
 }

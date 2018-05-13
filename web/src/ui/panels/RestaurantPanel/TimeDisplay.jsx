@@ -38,7 +38,7 @@ const TimeDisplay = ({ open, openTime, closeTime }) => {
   }
 
   return (
-    <div className="time-display" style={style}>
+    <div className='time-display' style={style}>
       {messagePrefix} {displayTime}
     </div>
   );

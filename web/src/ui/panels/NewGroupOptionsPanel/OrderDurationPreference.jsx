@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
 const OrderDurationPreference = ({ value, onChange }) => (
-  <div className="order-option">
-    <div className="order-option-heading">How long should this be open?</div>
+  <div className='order-option'>
+    <div className='order-option-heading'>How long should this be open?</div>
     <input
-      className="wait-time"
-      type="range"
-      min="10"
-      max="120"
-      step="5"
+      className='wait-time'
+      type='range'
+      min={10}
+      max='120'
+      step='5'
       value={value}
       onChange={onChange}
     />
-    <div className="range-label">{value} minutes</div>
+    <div className='range-label'>{value} minutes</div>
   </div>
 );
 

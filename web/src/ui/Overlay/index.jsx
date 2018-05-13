@@ -21,7 +21,7 @@ const overlayStyles = {
 
 const Overlay = ({ centerFocus, loggedIn, onClick }) => (
   <div
-    className="overlay"
+    className='overlay'
     style={centerFocus ? overlayStyles.visible : overlayStyles.hidden}
     onClick={loggedIn ? onClick : null}
   />

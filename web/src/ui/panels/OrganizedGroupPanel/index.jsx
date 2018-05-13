@@ -8,7 +8,7 @@ import { parseId, toJS } from 'common/utils';
 
 import { groupSelectors, groupActions } from 'data/groups';
 
-import { CloseButton, OrderTimer } from 'common/components';
+import { Button, CloseButton, OrderTimer } from 'common/components';
 import IndividualOrder from './IndividualOrder';
 
 import './styles.scss';
@@ -18,44 +18,42 @@ function OrganizedGroupPanel({
   markGroupOrdered, markGroupComplete,
 }) {
   return (
-    <div className="organized-group-panel">
-      <div className="group-details-header">
+    <div className='organized-group-panel'>
+      <div className='group-details-header'>
         <CloseButton />
-        <div className="group-details-heading">
+        <div className='group-details-heading'>
           Group Order from {restaurantName}
         </div>
-        <div className="group-details-toolbar">
-          <div className="info">
-            <div className="group-type">
+        <div className='group-details-toolbar'>
+          <div className='info'>
+            <div className='group-type'>
               {_.startCase(type)}
             </div>
             <OrderTimer timeStarted={timeStarted} duration={duration} />
           </div>
-          <div className="status-container">
+          <div className='status-container'>
             <div className={`status${active ? ' not-ordered' : ' ordered'}`}>
               {active ? 'Not Ordered' : 'Ordered'}
             </div>
           </div>
-          <div className="controls">
-            <div className="buttons">
+          <div className='controls'>
+            <div className='buttons'>
               {ended ?
-                <button
-                  className="button"
+                <Button
+                  text={active ? 'Mark as ordered' : 'Mark complete'}
                   onClick={active ?
                     () => markGroupOrdered(groupId) :
                     () => markGroupComplete(groupId)
                   }
-                >
-                  {active ? 'Mark as ordered' : 'Mark complete'}
-                </button>
+                />
                 : null}
-              <button className="button">Message group members</button>
+              <Button text='Message group members' />
             </div>
           </div>
         </div>
       </div>
-      <div className="orders">
-        <div className="orders-heading">Individual Orders</div>
+      <div className='orders'>
+        <div className='orders-heading'>Individual Orders</div>
         {orders.map(order => <IndividualOrder key={order.userId} {...order} />)}
       </div>
     </div>
@@ -74,8 +72,8 @@ OrganizedGroupPanel.propTypes = {
   restaurantName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
-  timeStarted: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
+  timeStarted: PropTypes.number,
+  duration: PropTypes.number,
   ended: PropTypes.bool.isRequired,
   markGroupOrdered: PropTypes.func.isRequired,
   markGroupComplete: PropTypes.func.isRequired,

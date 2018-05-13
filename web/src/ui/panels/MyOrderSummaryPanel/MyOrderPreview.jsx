@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import { LinkButton } from 'common/components';
 
 import { groupSelectors } from 'data/groups';
 
 const MyOrderPreview = ({ orderId, restaurantName, orderItems }) => (
-  <div className="my-order-preview">
-    <div className="info">
-      <div className="restaurant-name">{restaurantName}</div>
-      <div className="num-items">
+  <div className='my-order-preview'>
+    <div className='info'>
+      <div className='restaurant-name'>{restaurantName}</div>
+      <div className='num-items'>
         {orderItems.length} item{orderItems.length > 1 ? 's' : null}
       </div>
     </div>
-    <Link to={`/order-details/${orderId}`} className="button">View Details</Link>
+    <LinkButton text='View Details' to={`/order-details/${orderId}`} />
   </div>
 );
 
