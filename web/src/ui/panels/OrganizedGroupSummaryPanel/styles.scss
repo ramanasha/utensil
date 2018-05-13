@@ -2,6 +2,7 @@
 
 .organized-group-summary {
   @include centerpanel;
+  margin: auto;
   max-width: 25em;
   padding: 0 0.4em 0.4em;
   position: absolute;
