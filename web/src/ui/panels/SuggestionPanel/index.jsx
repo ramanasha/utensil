@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { restaurantSelectors } from 'data/restaurants';
 import { suggestedOrderSelectors } from 'data/suggestedOrder';
 
-import { CloseButton, PanelHeader, LandscapePhone } from 'common/components';
+import { CloseButton, PanelHeader } from 'common/components';
 import OrderTypePreference from './OrderTypePreference';
 import DrivingPreference from './DrivingPreference';
 import WaitTimePreference from './WaitTimePreference';
