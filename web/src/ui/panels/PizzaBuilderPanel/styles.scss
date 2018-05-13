@@ -32,6 +32,16 @@
   flex-direction: column;
   justify-content: flex-end;
 
+  @include phone {
+    margin: .2em .5em .5em;
+  }
+
+  @include phone-landscape {
+    width: 100%;
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+
   .panel-header {
     color: $title-color;
     box-shadow: none;
@@ -44,6 +54,19 @@
     padding-bottom: 0.4em;
     margin: 0.2em 0.4em 0;
     border-bottom: 1px solid $title-color;
+
+    @include phone {
+      font-size: 0.9em;
+    }
+
+    @include phone-landscape {
+      font-size: 0.9em;
+      width: 98%;
+      position: absolute;
+      justify-content: space-around;
+      top: 0;
+      z-index: 5;
+    }
 
     .size-option {
       @include item;
@@ -70,6 +93,10 @@
       flex-direction: column;
       align-items: stretch;
       margin-bottom: 0.4em;
+
+      @include phone-landscape {
+        width: 22.5%;
+      }
 
       .toppings-section-name {
         margin: 0 0.2em;
@@ -145,9 +172,21 @@
     }
   }
 
+  .pizza-attributes {
+    @include phone-landscape {
+      display: flex;
+      min-height: 3.8em;
+      border-top: 1px solid $title-color;
+      margin: 0 0.4em;
+      flex: 1 0 auto;
+      background-color: white;
+      z-index: 5;
+    }
+  }
+
   .pizza-attribute {
     flex: 0 0 auto;
-    font-size: 0.9em;
+    font-size: 0.8em;
     border-top: 1px solid $title-color;
     padding: 0.4em 0;
     margin: 0 0.4em;
@@ -156,6 +195,12 @@
     align-items: stretch;
     text-align: center;
     z-index: 3;
+
+    @include phone-landscape {
+      flex: 1 1 auto;
+      border-top: none;
+      margin: 0;
+    }
 
     .attribute-heading {
       font-weight: bold;
@@ -179,9 +224,22 @@
     display: flex;
     border-top: 1px solid $title-color;
 
+    @include phone-landscape {
+      margin: 0 0 0.2em;
+      padding: 0 0.2em;
+      border-top: none;
+      border-left: 1px solid $title-color;
+      flex-direction: column;
+      overflow: scroll;
+    }
+
     .side-toppings {
       flex: 1 0 0;
       text-align: center;
+
+      @include phone-landscape {
+        padding: 0 .2em;
+      }
 
       .side-label {
         font-weight: bold;
@@ -191,6 +249,10 @@
         font-size: 0.9em;
         margin-top: 0.5em;
         padding: 0 0.3em;
+
+        @include phone-landscape {
+          margin-top: 0.2em;
+        }
 
         .side-topping {
           color: $title-color;
@@ -206,6 +268,13 @@
 
     .side-toppings+.side-toppings {
       border-left: 1px solid $title-color;
+
+      @include phone-landscape {
+        border-left: none;
+        border-top: 1px solid $title-color;
+        margin-top: 0.2em;
+        padding-top: 0.2em;
+      }
     }
   }
 
@@ -217,6 +286,10 @@
     color: $title-color;
     font-size: 0.9em;
     font-style: italic;
+
+    @include phone-landscape {
+      display: none;
+    }
   }
 
   .toolbar {

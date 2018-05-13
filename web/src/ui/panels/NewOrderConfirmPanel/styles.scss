@@ -4,6 +4,12 @@
   @include centerpanel;
   padding: 0 0.5em 0.5em;
 
+  @include phone-landscape {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-left: 0;
+  }
+
   .confirm-message {
     text-align: center;
     color: $title-color;

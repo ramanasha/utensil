@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Range } from 'common/components';
+
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
 const OrderDurationPreference = ({ value, onChange }) => (
   <div className='order-option'>
     <div className='order-option-heading'>How long should this be open?</div>
-    <input
-      className='wait-time'
-      type='range'
+    <Range
       min={10}
-      max='120'
-      step='5'
+      max={120}
+      step={5}
       value={value}
       onChange={onChange}
+      label={`${value} minutes`}
     />
-    <div className='range-label'>{value} minutes</div>
   </div>
 );
 
@@ -33,7 +33,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(setOrderDuration(parseInt(e.currentTarget.value, 10))),
+  onChange: value => dispatch(setOrderDuration(value)),
 });
 
 export default connect(

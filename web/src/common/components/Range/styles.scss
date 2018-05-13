@@ -110,3 +110,7 @@ $contrast: 5%;
     background: lighten($track-color, $contrast);
   }
 }
+
+.range-label {
+  text-align: center;
+}

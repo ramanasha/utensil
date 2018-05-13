@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Range } from 'common/components';
+
 import { currentOrderSelectors, currentOrderActions } from 'data/currentOrder';
 
 const OverheadPreference = ({ value, onChange }) => (
@@ -12,16 +14,14 @@ const OverheadPreference = ({ value, onChange }) => (
     <div className='order-option-heading'>
       Don&apos;t include meal tax.
     </div>
-    <input
-      className='overhead-percentage'
-      type='range'
-      min='0'
-      max='20'
-      step='1'
+    <Range
+      min={0}
+      max={20}
+      step={1}
       value={value}
       onChange={onChange}
+      label={`${value}%`}
     />
-    <div className='range-label'>{value}%</div>
   </div>
 );
 
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(setOrderOverhead(parseInt(e.currentTarget.value, 10))),
+  onChange: value => dispatch(setOrderOverhead(value)),
 });
 
 export default connect(

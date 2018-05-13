@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ import { pizzaBuilderSelectors, pizzaBuilderActions } from 'data/pizzaBuilder';
 import { restaurantSelectors } from 'data/restaurants';
 import { itemSelectors } from 'data/items';
 
-import { Button, PanelHeader } from 'common/components';
+import { Button, PanelHeader, LandscapePhone } from 'common/components';
 import PizzaSizeSelection from './PizzaSizeSelection';
 import ToppingsSection from './ToppingsSection';
 import CheeseSelection from './CheeseSelection';
@@ -46,15 +46,24 @@ class PizzaBuilderPanel extends React.Component {
       <div className='pizza-builder-panel'>
         <PanelHeader name='Pizza Builder' />
         <PizzaSizeSelection />
-        <div className='toppings'>
-          <ToppingsSection name='Meats' toppings={toppings.meats} />
-          <ToppingsSection name='Non-Meats' toppings={toppings['non-meats']} />
-        </div>
-        <CheeseSelection options={['No Cheese', 'Normal Cheese', 'Extra Cheese']} />
-        {whole ?
-          <SauceSelection options={['No Sauce', sauces.default, ...sauces.other]} />
-          : null}
-        {whole ? this.displayToppings() : null}
+        <LandscapePhone>
+          {matches => (
+            <Fragment>
+              <div className='toppings'>
+                <ToppingsSection name='Meats' toppings={toppings.meats} />
+                <ToppingsSection name='Non-Meats' toppings={toppings['non-meats']} />
+                {whole && matches ? this.displayToppings() : null}
+              </div>
+              <div className='pizza-attributes'>
+                <CheeseSelection options={['No Cheese', 'Normal Cheese', 'Extra Cheese']} />
+                {whole ?
+                  <SauceSelection options={['No Sauce', sauces.default, ...sauces.other]} />
+                  : null}
+              </div>
+              {whole && !matches ? this.displayToppings() : null}
+            </Fragment>
+          )}
+        </LandscapePhone>
         <div className='toolbar'>
           <Button text='Cancel' onClick={onClose} />
           <Button text='Add to Order' onClick={onAdd} />

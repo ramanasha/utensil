@@ -16,6 +16,10 @@
     min-width: 0;
     margin-left: 0;
     max-height: 100%;
+
+    &.confirm {
+      margin-left: 0.5em;
+    }
   }
 
   .scrollable {

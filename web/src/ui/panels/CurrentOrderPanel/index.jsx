@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
 import { toJS } from 'common/utils';
 
@@ -17,7 +18,7 @@ function CurrentOrderPanel({
 }) {
   if (orderStarted) {
     return (
-      <div className='current-order-panel'>
+      <div className={classNames('current-order-panel', { confirm: stage === 'confirm' })}>
         <PanelHeader name='Your Order' />
         <div className='scrollable'>
           {items.map((item, index) => <OrderItem key={item.id} index={index} {...item} />)}
