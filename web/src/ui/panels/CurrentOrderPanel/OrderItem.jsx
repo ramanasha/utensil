@@ -15,7 +15,7 @@ function OrderItem({
 }) {
   return (
     <div className='order-item'>
-      <div className='remove-item' onClick={onRemove}>×</div>
+      <div className='remove-item' onClick={onRemove}>&#215;</div>
       <div className='order-item-description'>
         <div className='order-item-name'>{name}</div>
         {data ?

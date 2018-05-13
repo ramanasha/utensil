@@ -12,7 +12,7 @@ const OrderItem = ({ name, quantity, data }) => {
   return (
     <div className='order-item'>
       <div className='order-item-name'>
-        {quantity > 1 && `${quantity} × `}
+        {quantity > 1 && `${quantity} \u00d7 `}
         {name}
         {pizzaSize && ` (${_.startCase(pizzaSize)})`}
       </div>

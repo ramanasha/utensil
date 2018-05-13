@@ -14,8 +14,8 @@ const HelperText = ({ className, text }) => (
   <div className={className}>
     <div className='helper-text'>{text}</div>
     <div className='arrows'>
-      <div className='left-arrow'>▼</div>
-      <div className='right-arrow'>▼</div>
+      <div className='left-arrow'>&#9660;</div>
+      <div className='right-arrow'>&#9660;</div>
     </div>
   </div>
 );

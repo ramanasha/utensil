@@ -16,9 +16,9 @@ const ToppingOption = ({ name, selected, whole, toggle }) => (
     </div>
     {selected && whole ?
       <div className='topping-side-select'>
-        <ToppingSideButton name={name} side='left' icon='◐' />
-        <ToppingSideButton name={name} side='whole' icon='◉' />
-        <ToppingSideButton name={name} side='right' icon='◑' />
+        <ToppingSideButton name={name} side='left' icon={'\u25d0'} />
+        <ToppingSideButton name={name} side='whole' icon={'\u25c9'} />
+        <ToppingSideButton name={name} side='right' icon={'\u25d1'} />
       </div>
       : null}
   </div>
