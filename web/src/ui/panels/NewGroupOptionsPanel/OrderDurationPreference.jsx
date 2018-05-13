@@ -10,7 +10,7 @@ const OrderDurationPreference = ({ value, onChange }) => (
     <input
       className='wait-time'
       type='range'
-      min='10'
+      min={10}
       max='120'
       step='5'
       value={value}

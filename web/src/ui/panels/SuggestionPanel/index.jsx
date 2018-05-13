@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { restaurantSelectors } from 'data/restaurants';
 import { suggestedOrderSelectors } from 'data/suggestedOrder';
 
-import { CloseButton, PanelHeader } from 'common/components';
+import { CloseButton, PanelHeader, LandscapePhone } from 'common/components';
 import OrderTypePreference from './OrderTypePreference';
 import DrivingPreference from './DrivingPreference';
 import WaitTimePreference from './WaitTimePreference';
@@ -22,12 +22,16 @@ const SuggestionPanel = ({ id, name, askDriving, valid }) => (
       <div className='restaurant-name'>{name}</div>
     </div>
     <div className='suggestion-options'>
-      <OrderTypePreference />
-      {askDriving ?
-        <DrivingPreference />
-        : null}
-      <WaitTimePreference />
-      <MinPeoplePreference />
+      <div className='suggestion-options-column'>
+        <OrderTypePreference />
+        {askDriving ?
+          <DrivingPreference />
+          : null}
+      </div>
+      <div className='suggestion-options-column'>
+        <WaitTimePreference />
+        <MinPeoplePreference />
+      </div>
     </div>
     {valid ?
       <SubmitSuggestion id={id} />

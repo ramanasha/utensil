@@ -41,11 +41,11 @@ $contrast: 5%;
   }
 }
 
-input[type="range"] {
+.range input {
   -webkit-appearance: none;
   margin: $thumb-height/2 0;
   width: $track-width;
-  
+
   &:focus {
     outline: none;
   }

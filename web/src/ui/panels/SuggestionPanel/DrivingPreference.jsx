@@ -45,7 +45,7 @@ const { setDrivingPreference } = suggestedOrderActions;
 const mapStateToProps = state => ({ checked: getDrivingPreference(state) });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: value => dispatch(setDrivingPreference(value)),
+  onChange: value => dispatch(setDrivingPreference(value, 'suggest')),
 });
 
 export default connect(

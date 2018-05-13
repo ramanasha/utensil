@@ -17,6 +17,10 @@ export const Tablet = props => <Responsive {...props} minWidth={tabletMin} maxWi
 
 export const Phone = props => <Responsive {...props} maxWidth={phoneMax} />;
 
+export const LandscapePhone = props => (
+  <Responsive {...props} maxWidth={phoneMax} orientation='landscape' />
+);
+
 export const Mobile = props => <Responsive {...props} maxWidth={tabletMax} />;
 
 export const Default = props => <Responsive {...props} minWidth={tabletMin} />;

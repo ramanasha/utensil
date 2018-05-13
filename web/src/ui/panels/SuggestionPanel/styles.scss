@@ -6,6 +6,11 @@
   text-align: center;
   padding-bottom: 0.5em;
 
+  @include phone-landscape {
+    width: 100%;
+    max-width: initial;
+  }
+
   .suggestion-header {
     padding: 0.4em;
 
@@ -28,13 +33,37 @@
     flex-direction: column;
     align-items: center;
 
+    @include phone-landscape {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .suggestion-options-column+.suggestion-options-column {
+      margin-top: 1em;
+
+      @include phone-landscape {
+        margin-top: 0;
+      }
+    }
+
+    .suggestion-options-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .suggestion-option {
       display: flex;
       flex-direction: column;
       align-items: center;
+      
+
+      &:nth-child(2) {
+        margin-top: 1em;;
+      }
 
       @include phone-landscape {
-        height: 8em;
+        
       }
 
       .suggestion-option-heading {
