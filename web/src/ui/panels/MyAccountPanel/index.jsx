@@ -84,6 +84,7 @@ MyAccountPanel.propTypes = {
   editMode: PropTypes.string.isRequired,
   splitwiseAuth: PropTypes.bool.isRequired,
   notifications: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
   logOut: PropTypes.func.isRequired,
   onChangeUsername: PropTypes.func.isRequired,
   onChangePassword: PropTypes.func.isRequired,
