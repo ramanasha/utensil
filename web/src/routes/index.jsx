@@ -12,6 +12,7 @@ import Suggest from './Suggest';
 import Vote from './Vote';
 import GroupDetails from './GroupDetails';
 import OrderDetails from './OrderDetails';
+import Account from './Account';
 
 const Routes = () => (
   <Switch>
@@ -27,6 +28,7 @@ const Routes = () => (
     <Route path='/vote/:id' component={Vote} />
     <Route path='/group-details/:id' component={GroupDetails} />
     <Route path='/order-details/:id' component={OrderDetails} />
+    <Route exact path='/account' component={Account} />
   </Switch>
 );
 

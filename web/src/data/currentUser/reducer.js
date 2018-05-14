@@ -1,9 +1,22 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { loginActionTypes } from '../login';
+import { types } from './actions';
 
-export default (state = Map({ loggedIn: false }), action) => {
+const initialState = fromJS({
+  loggedIn: false,
+  accountSettings: {
+    editMode: '',
+    newUsername: '',
+    currentPassword: '',
+    newPassword: '',
+    confirmNewPassword: '',
+    error: '',
+  },
+});
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case loginActionTypes.LOGIN_SUCCESS:
     case loginActionTypes.NEW_ACCOUNT_SUCCESS:
@@ -23,6 +36,57 @@ export default (state = Map({ loggedIn: false }), action) => {
           .delete('splitwiseAuth');
       }
       return state;
+
+    case types.SET_EDIT_MODE: {
+      const newState = state.setIn(['accountSettings', 'editMode'], action.mode);
+      if (action.mode === '') {
+        switch (state.getIn(['accountSettings', 'editMode'])) {
+          case 'changeUsername':
+            return newState.update(
+              'accountSettings',
+              settings => settings.set('newUsername', ''),
+            );
+          case 'changePassword':
+            return newState.update(
+              'accountSettings',
+              settings => settings.merge(Map({
+                currentPassword: '',
+                newPassword: '',
+                confirmNewPassword: '',
+              })),
+            );
+          default:
+            return newState;
+        }
+      }
+      return newState;
+    }
+
+    case types.UPDATE_NEW_USERNAME_FIELD:
+      return state.setIn(['accountSettings', 'newUsername'], action.value)
+        .setIn(['accountSettings', 'error'], '');
+
+    case types.UPDATE_CURRENT_PASSWORD_FIELD:
+      return state.setIn(['accountSettings', 'currentPassword'], action.value)
+        .setIn(['accountSettings', 'error'], '');
+
+    case types.UPDATE_NEW_PASSWORD_FIELD:
+      return state.setIn(['accountSettings', 'newPassword'], action.value)
+        .setIn(['accountSettings', 'error'], '');
+
+    case types.UPDATE_CONFIRM_NEW_PASSWORD_FIELD:
+      return state.setIn(['accountSettings', 'confirmNewPassword'], action.value)
+        .setIn(['accountSettings', 'error'], '');
+
+    case types.USERNAME_CHANGE_SUCCESS:
+      return state
+        .set('username', action.value)
+        .setIn(['accountSettings', 'editMode'], '')
+        .setIn(['accountSettings', 'newUsername'], '');
+
+    case types.USERNAME_CHANGE_FAILURE:
+    case types.PASSWORD_CHANGE_FAILURE:
+      return state.setIn(['accountSettings', 'error'], action.error);
 
     default:
       return state;

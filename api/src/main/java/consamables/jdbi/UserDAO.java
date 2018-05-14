@@ -40,4 +40,15 @@ public interface UserDAO {
               "(:username, :hash, :salt) " +
               "RETURNING user_id, email, FALSE AS auth")
     User addUser(@Bind("username") String username, @Bind("hash") byte[] hash, @Bind("salt") byte[] salt);
+    
+    @SqlQuery("UPDATE \"user\" SET email = :username " +
+    		  "WHERE email = :oldUsername " +
+    		  "RETURNING user_id, email, (splitwise_token IS NOT NULL) AS auth")
+    User changeUsername(@Bind("oldUsername") String oldUsername, @Bind("username") String username);
+    
+    @SqlQuery("UPDATE \"user\" SET " +
+              "(password_hash, password_salt) = (:hash, :salt) " +
+    		  "WHERE email = :username " +
+              "RETURNING user_id, email, (splitwise_token IS NOT NULL) AS auth")
+    User changePassword(@Bind("username") String username, @Bind("hash") byte[] hash, @Bind("salt") byte[] salt);
 }

@@ -40,21 +40,26 @@ public class LoginManager {
         }
     }
 
+    private static byte[] generateSalt() {
+    	final Random r = new SecureRandom();
+    	final byte[] salt = new byte[32];
+    	r.nextBytes(salt);
+    	return salt;
+    }
+
     public AccessToken registerNewUser(LoginCredentials credentials) {
         final String username = credentials.getUsername().toLowerCase();
         if (userDAO.doesUserExist(username)) {
             return null;
         }
         final String password = credentials.getPassword();
-        final Random r = new SecureRandom();
-        final byte[] salt = new byte[32];
-        r.nextBytes(salt);
+        final byte[] salt = generateSalt();
         final byte[] passwordHash = hashPassword(password.toCharArray(), salt, NUM_ITERATIONS, KEY_LENGTH);
         User newUser = userDAO.addUser(username, passwordHash, salt);
         AccessToken token = generateNewAccessToken(newUser);
         return token.setUsername(username).setSplitwiseAuthenticated(false);
     }
-    
+
     private AccessToken generateNewAccessToken(User user) {
         AccessToken newToken = new AccessToken(UUID.randomUUID(), user.getUserId());
         return accessTokenDAO.addAccessToken(newToken);
@@ -80,5 +85,22 @@ public class LoginManager {
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public User changeUsername(String oldUsername, String newUsername) {
+    	return userDAO.changeUsername(oldUsername, newUsername);
+    }
+
+    public User changePassword(NewCredentials credentials) {
+    	if (!checkPassword(credentials.getUsername(), credentials.getOldPassword())) {
+    		return null;
+    	}
+    	final byte[] salt = generateSalt();
+    	final byte[] hash = hashPassword(
+    			credentials.getPassword().toCharArray(),
+    			salt,
+    			NUM_ITERATIONS,
+    			KEY_LENGTH);
+    	return userDAO.changePassword(credentials.getUsername(), hash, salt);
     }
 }

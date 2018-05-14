@@ -25,7 +25,12 @@
     }
   }
 
-  .button {
-    align-self: stretch;
+  .account-buttons {
+    display: flex;
+    width: 100%;
+
+    .button {
+      flex: 1 0 auto;
+    }
   }
 }

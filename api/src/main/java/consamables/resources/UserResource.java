@@ -19,6 +19,7 @@ import consamables.api.User;
 import consamables.auth.AccessToken;
 import consamables.auth.LoginCredentials;
 import consamables.auth.LoginManager;
+import consamables.auth.NewCredentials;
 import consamables.jdbi.AccessTokenDAO;
 import consamables.jdbi.UserDAO;
 import io.dropwizard.auth.Auth;
@@ -28,6 +29,8 @@ import io.dropwizard.auth.Auth;
 public class UserResource {
     private LoginManager loginManager;
     private UserDAO dao;
+    
+    private static String usernameRegex = "^[\\w-\\.]+@([a-zA-Z_]+?\\.)+[a-zA-Z]{2,3}$";
 
     public UserResource(UserDAO userDAO, AccessTokenDAO accessTokenDAO) {
         this.loginManager = new LoginManager(userDAO, accessTokenDAO);
@@ -50,7 +53,7 @@ public class UserResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public AccessToken createUser(@Valid LoginCredentials credentials) {
-        if (!Pattern.matches("^[\\w-\\.]+@([a-zA-Z_]+?\\.)+[a-zA-Z]{2,3}$", credentials.getUsername())) {
+        if (!Pattern.matches(usernameRegex, credentials.getUsername())) {
             throw new WebApplicationException("Invalid username.", Response.status(400).build());
         }
         AccessToken token = loginManager.registerNewUser(credentials);
@@ -65,6 +68,28 @@ public class UserResource {
     @GET
     public User getInfo(@Auth User user) {
         return user;
+    }
+    
+    @Path("/change-username")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public User changeUsername(@Auth User user, @Valid NewCredentials credentials) {
+    	if (!Pattern.matches(usernameRegex, credentials.getUsername())) {
+    		throw new WebApplicationException("Invalid username.", Response.status(400).build());
+    	}
+    	return loginManager.changeUsername(user.getEmail(), credentials.getUsername());
+    }
+    
+    @Path("/change-password")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public User changePassword(@Auth User user, @Valid NewCredentials credentials) {
+    	credentials.setUsername(user.getEmail());
+    	User sameUser = loginManager.changePassword(credentials);
+    	if (sameUser == null) {
+    		throw new WebApplicationException("Existing password does not match.", Response.status(400).build());
+    	}
+    	return user;
     }
 
     @PermitAll

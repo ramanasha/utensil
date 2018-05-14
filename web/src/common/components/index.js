@@ -4,6 +4,8 @@ export { default as CloseButton } from './CloseButton';
 export { default as Link } from './Link';
 export { default as Button } from './Button';
 export { default as Range } from './Range';
+export { default as Input } from './Input';
+export { default as CredentialInput } from './CredentialInput';
 export { default as LinkButton } from './LinkButton';
 export { default as OrderTimer } from './OrderTimer';
 export { default as PanelHeader } from './PanelHeader';
