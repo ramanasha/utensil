@@ -165,6 +165,12 @@ export const actions = {
       });
   },
 
+  redirectToSplitwiseGroup: () => () => {
+    fetch('/api/payment/group-url', buildGetRequest())
+      .then(response => response.text())
+      .then(url => { window.open(url); });
+  },
+
   updateConfirmPasswordField: text => ({
     type: types.UPDATE_CONFIRM_PASSWORD_FIELD,
     value: text,

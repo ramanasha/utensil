@@ -33,6 +33,13 @@ public class PaymentResource {
         return paymentManager.getAuthorizationUrl();
     }
     
+    @Path("/group-url")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getGroupUrl() {
+    	return paymentManager.getGroupUrl();
+    }
+    
     @Path("/authenticate-user")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

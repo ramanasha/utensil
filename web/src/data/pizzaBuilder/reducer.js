@@ -10,7 +10,7 @@ export default (state = Map(), action) => {
     case types.OPEN_PIZZA_BUILDER:
       return state
         .set('itemId', action.id)
-        .set('size', 'half')
+        .set('size', 'whole')
         .set('toppings', Map())
         .set('cheese', 'Normal Cheese');
 

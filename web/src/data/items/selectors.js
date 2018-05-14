@@ -4,3 +4,6 @@ export const getItemPrice = (state, id) => state.getIn(['items', id, 'price'], 0
 
 export const getMaxPizzaToppings = (state, id) => state
   .getIn(['items', id, 'data', 'pizza', 'maxToppings']);
+
+export const getPizzaHalvesAllowed = (state, id) => state
+  .getIn(['items', id, 'data', 'pizza', 'halves']);

@@ -40,12 +40,12 @@ class PizzaBuilderPanel extends React.Component {
   }
 
   render() {
-    const { toppings, sauces, whole, onClose, onAdd } = this.props;
+    const { toppings, sauces, whole, halvesAllowed, onClose, onAdd } = this.props;
 
     return (
       <div className='pizza-builder-panel'>
         <PanelHeader name='Pizza Builder' />
-        <PizzaSizeSelection />
+        {halvesAllowed ? <PizzaSizeSelection /> : null}
         <LandscapePhone>
           {matches => (
             <Fragment>
@@ -85,6 +85,7 @@ PizzaBuilderPanel.propTypes = {
   maxToppings: PropTypes.number.isRequired,
   hasToppings: PropTypes.bool.isRequired,
   whole: PropTypes.bool.isRequired,
+  halvesAllowed: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
   setSauce: PropTypes.func.isRequired,
@@ -94,7 +95,7 @@ PizzaBuilderPanel.propTypes = {
 const { getItemId, getPizzaSize, getCurrentToppings } = pizzaBuilderSelectors;
 const { closePizzaBuilder, setInitialSauce, setMaxToppings, addPizzaToOrder } = pizzaBuilderActions;
 const { getPizzaToppings, getPizzaSauces } = restaurantSelectors;
-const { getMaxPizzaToppings } = itemSelectors;
+const { getMaxPizzaToppings, getPizzaHalvesAllowed } = itemSelectors;
 
 const mapStateToProps = (state, { id }) => ({
   toppings: getPizzaToppings(state, id),
@@ -102,10 +103,11 @@ const mapStateToProps = (state, { id }) => ({
   maxToppings: getMaxPizzaToppings(state, getItemId(state)),
   hasToppings: !!getCurrentToppings(state).size,
   whole: getPizzaSize(state) === 'whole',
+  allowHalves: getPizzaHalvesAllowed(state, getItemId(state)),
 });
 
 const mapDispatchToProps = dispatch => ({
-  close: () => dispatch(closePizzaBuilder()),
+  onClose: () => dispatch(closePizzaBuilder()),
   setSauce: sauce => dispatch(setInitialSauce(sauce)),
   setMaxToppings: value => dispatch(setMaxToppings(value)),
   onAdd: () => dispatch(addPizzaToOrder()),

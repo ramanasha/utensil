@@ -14,7 +14,8 @@ import './styles.scss';
 
 function MyAccountPanel({
   username, editMode, splitwiseAuth, notifications, error,
-  logOut, onChangeUsername, onChangePassword, onCancelEdit, onSubmitUsername, onSubmitPassword,
+  onChangeUsername, onChangePassword, onCancelEdit, onSubmitUsername, onSubmitPassword,
+  logOut, linkSplitwise, openSplitwiseGroup,
 }) {
   return (
     <div className='my-account-panel'>
@@ -62,8 +63,8 @@ function MyAccountPanel({
           You are {!splitwiseAuth ? 'not yet' : ''} authenticated with Splitwise.
         </div>
         {!editMode && (splitwiseAuth ?
-          <Button text='View Debts' />
-          : <Button text='Link Account' />
+          <Button text='View Debts' onClick={openSplitwiseGroup} />
+          : <Button text='Link Account' onClick={linkSplitwise} />
         )}
       </div>
       <div className={`account-section ${notifications ? 'ok' : 'alert'}`}>
@@ -91,6 +92,8 @@ MyAccountPanel.propTypes = {
   onCancelEdit: PropTypes.func.isRequired,
   onSubmitUsername: PropTypes.func.isRequired,
   onSubmitPassword: PropTypes.func.isRequired,
+  linkSplitwise: PropTypes.func.isRequired,
+  openSplitwiseGroup: PropTypes.func.isRequired,
 };
 
 const {
@@ -100,7 +103,7 @@ const {
   getAccountSettingsError,
 } = currentUserSelectors;
 const { setEditMode, submitUsernameChange, submitPasswordChange } = currentUserActions;
-const { logOut } = loginActions;
+const { logOut, redirectToSplitwise, redirectToSplitwiseGroup } = loginActions;
 
 const mapStateToProps = state => ({
   username: getCurrentUsername(state),
@@ -117,6 +120,8 @@ const mapDispatchToProps = dispatch => ({
   onCancelEdit: () => dispatch(setEditMode('')),
   onSubmitUsername: () => dispatch(submitUsernameChange()),
   onSubmitPassword: () => dispatch(submitPasswordChange()),
+  linkSplitwise: () => dispatch(redirectToSplitwise()),
+  openSplitwiseGroup: () => dispatch(redirectToSplitwiseGroup()),
 });
 
 export default connect(

@@ -22,6 +22,7 @@ import consamables.jdbi.SplitwiseUserDAO;
 
 public class PaymentManager {
     private static final String BASE_URL = "https://secure.splitwise.com/api/v3.0/";
+    private static final String BASE_GROUP_URL = "https://secure.splitwise.com/groups/";
     private static final String GET_USER = BASE_URL + "get_current_user";
     private static final String ADD_USER = BASE_URL + "add_user_to_group";
     private static final String CREATE_EXPENSE = BASE_URL + "create_expense";
@@ -55,6 +56,10 @@ public class PaymentManager {
 
     public String getAuthorizationUrl() {
         return service.getAuthorizationUrl();
+    }
+    
+    public String getGroupUrl() {
+    	return BASE_GROUP_URL + Long.toString(splitwiseGroupId);
     }
 
     public void authenticateUser(SplitwiseCode code) throws IOException {
