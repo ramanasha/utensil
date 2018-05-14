@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { CredentialInput } from 'common/components';
+
 import { loginSelectors, loginActions } from 'data/login';
 
 const PasswordField = ({ value, onChange }) => (
-  <div className='login-field'>
-    <div className='credential-label'>Password</div>
-    <input type='password' name='password' value={value} onChange={onChange} />
-  </div>
+  <CredentialInput label='Password' type='password' value={value} onChange={onChange} />
 );
 
 PasswordField.propTypes = {
@@ -24,7 +23,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(updatePasswordField(e.currentTarget.value)),
+  onChange: value => dispatch(updatePasswordField(value)),
 });
 
 export default connect(

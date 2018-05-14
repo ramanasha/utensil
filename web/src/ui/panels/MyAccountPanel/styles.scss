@@ -2,11 +2,20 @@
 
 .my-account-panel {
   @include panel;
-  padding: 0 $margin $margin;
+  padding: $margin;
   align-items: center;
+  z-index: 2;
+
+  .error {
+    color: red;
+  }
 
   .panel-header {
-    margin-bottom: -$margin;
+    margin: -$margin;
+  }
+
+  .account-settings-editor {
+    margin-top: 0.75em;
   }
 
   .account-section {
