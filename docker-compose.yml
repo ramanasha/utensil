@@ -7,17 +7,17 @@ services:
       - ./data:/var/lib/postgresql/data
     env_file: secrets/db_variables.env
   api:
-    image: sam4core/consamables-api
+    image: sam4core/utensil-api
     ports:
       - "8080:8080"
     depends_on:
       - db
-    command: ["./wait-for-db.sh", "db", "java", "-jar", "consamables.jar", "server", "config.yml"]
+    command: ["./wait-for-db.sh", "db", "java", "-jar", "utensil.jar", "server", "config.yml"]
     env_file:
       - secrets/db_variables.env
       - secrets/api_variables.env
   web:
-    image: sam4core/consamables-web
+    image: sam4core/utensil-web
     ports:
       - "80:9090"
     depends_on:

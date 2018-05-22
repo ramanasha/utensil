@@ -13,7 +13,7 @@ headings = [x.find('h2').string.strip() for x in menu.find_all('div', class_='me
 sections = menu.find_all('div', class_='menu-section')
 all_items = []
 
-conn = psycopg2.connect(dbname='consamables', user='sam', password='pizza')
+conn = psycopg2.connect(dbname='utensil', user='sam', password='pizza')
 cur = conn.cursor()
 restaurant_id = 8
 

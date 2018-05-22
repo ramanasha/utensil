@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>core.sam</groupId>
-    <artifactId>consamables</artifactId>
+    <artifactId>utensil</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Consamables Webapp</name>
-  <url>http://maven.apache.org</url>
+  <name>Utensil Webapp</name>
+  <url>https://utensil.app</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -55,7 +55,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>consamables</finalName>
+    <finalName>utensil</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +86,7 @@
                             implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                         <transformer
                             implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>consamables.ConsamablesApplication</mainClass>
+                            <mainClass>utensil.UtensilApplication</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>

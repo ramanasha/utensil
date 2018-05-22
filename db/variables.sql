@@ -1,3 +1,3 @@
-\set dbname consamables
+\set dbname utensil
 \set user sam
 \set password 'pizza'
