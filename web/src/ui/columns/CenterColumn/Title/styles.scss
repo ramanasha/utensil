@@ -25,6 +25,12 @@
     vertical-align: middle;
     color: $title-color;
     text-shadow: 0 0.05em 0.1em $text-shadow;
+    width: 12rem;
+    margin: auto;
+
+    .utensil-logo {
+      filter: drop-shadow(1px 1px 1px $svg-shadow);
+    }
   }
 
   .subheading {

@@ -657,6 +657,10 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
+"@tanem/svg-injector@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-1.1.4.tgz#a69bc69a92bbc3c0d06b049dfa3b2c90b628fda1"
+
 "@types/node@*":
   version "9.6.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.5.tgz#ee700810fdf49ac1c399fc5980b7559b3e5a381d"
@@ -7369,6 +7373,12 @@ react-router@^4.2.0:
     path-to-regexp "^1.7.0"
     prop-types "^15.5.4"
     warning "^3.0.0"
+
+react-svg@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-4.0.2.tgz#e570dacdcc93788277e66c5a1729472baf8edbef"
+  dependencies:
+    "@tanem/svg-injector" "^1.1.4"
 
 react-test-renderer@^16.0.0-0, react-test-renderer@^16.3.2:
   version "16.3.2"
