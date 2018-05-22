@@ -5,7 +5,7 @@ import './styles.scss';
 
 const Title = ({ terse }) => (
   <div className='title'>
-    <div className='heading'>Consamables</div>
+    <div className='heading'>Utensil</div>
     {!terse ?
       <div className='subheading'>Order food with your friends</div>
       : null

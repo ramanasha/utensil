@@ -7,9 +7,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 COPY config.prod.yml /app/config.yml
-COPY target/consamables.jar /app
+COPY target/utensil.jar /app
 COPY wait-for-db.sh /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "consamables.jar", "server", "config.yml"]
+CMD ["java", "-jar", "utensil.jar", "server", "config.yml"]

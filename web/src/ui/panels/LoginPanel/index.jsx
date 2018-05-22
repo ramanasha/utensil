@@ -32,7 +32,7 @@ class LoginPanel extends React.Component {
 
     return (
       <div className='login-panel'>
-        <PanelHeader name='Log into Consamables' />
+        <PanelHeader name='Log into Utensil' />
         <form className='login' onSubmit={onSubmit}>
           <div className='login-fields'>
             <UsernameField />
