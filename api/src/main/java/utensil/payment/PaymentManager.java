@@ -104,7 +104,8 @@ public class PaymentManager {
                 splitwisePayerId, splitwisePayeeId, splitwiseGroupId,
                 amount, description);
         final OAuthRequest request = createPostRequest(CREATE_EXPENSE, body, accessToken);
-        request.send();
+        Response response = request.send();
+        System.out.println(response);
     }
 
     public BigDecimal calculateOrderCost(List<OrderItem> orderItems, BigDecimal overhead) {
@@ -123,15 +124,15 @@ public class PaymentManager {
 
     private OAuthRequest createGetRequest(String url, OAuth2AccessToken accessToken) {
         final OAuthRequest request = new OAuthRequest(Verb.GET, url, service);
-        service.signRequest(accessToken, request);
+        request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
         return request;
     }
 
     private OAuthRequest createPostRequest(String url, Object body, OAuth2AccessToken accessToken) throws JsonProcessingException {
         final OAuthRequest request = new OAuthRequest(Verb.POST, url, service);
         request.addHeader("Content-Type", "application/json;charset=UTF-8");
+        request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
         request.addPayload(objectMapper.writeValueAsString(body));
-        service.signRequest(accessToken, request);
         return request;
     }
 }
