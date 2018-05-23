@@ -21,7 +21,10 @@ Often the most complicated part of ordering in a group is settling up afterward.
 Utensil uses Dropwizard for its API backend. Dropwizard packages a bunch of useful Java libraries (Jetty, Jersey, Jackson, JDBI, etc.) into a robust toolset for creating web services.
 
 ### [React](https://facebook.github.io/react/)
-Utensil is implemented as a Single Page Application and uses React for its component-based Javascript UI. With React, you define declarative, composable views, which allows you to manage encapsulated and easily debuggable state without messing with the DOM.
+Utensil is implemented as a Single Page Application and uses React for its component-based Javascript UI. With React, you define declarative, composable views, which allows you to manage encapsulated and easily debuggable state without messing with the DOM directly.
 
 ### [PostgreSQL](https://www.postgresql.org/)
-Utensil is designed to use Postgres as a database backend. Postgres is stable, open source, and has a number of useful features that build on the SQL standard.
+Utensil uses Postgres as a database backend. Postgres is stable, open source, and has a number of useful features that build on the SQL standard.
+
+### [Docker](https://www.docker.com/what-docker)
+In production, Utensil runs inside a stack of linked Docker containers. Docker makes it easy to package software in a lightweight and portable way, which helps streamline Utensil's continuous integration/deployment pipeline. Read more about the CI/CD for this project in [the deployment docs](./DEPLOYMENT.md).
