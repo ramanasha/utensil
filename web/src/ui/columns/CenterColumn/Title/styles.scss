@@ -3,16 +3,16 @@
 @import '~common/styles/panel-measurements';
 
 .title {
-  font-size: 2.8em;
+  font-size: 2.8rem;
   // font-weight: bold;
   width: 100%;
   text-align: center;
-  margin: ($margin / 2.5) 0;
+  margin: ($margin / 2.5) 0 ($margin / 5);
   z-index: 2;
   pointer-events: none;
 
   @include phone-landscape {
-    font-size: 1.5em;
+    font-size: 1.8rem;
   }
 
   @include tablet-or-desktop {
@@ -25,11 +25,11 @@
     vertical-align: middle;
     color: $title-color;
     text-shadow: 0 0.05em 0.1em $text-shadow;
-    width: 12rem;
     margin: auto;
 
     .utensil-logo {
       filter: drop-shadow(1px 1px 1px $svg-shadow);
+      height: 1em;
     }
   }
 
