@@ -27,4 +27,4 @@ Utensil is implemented as a Single Page Application and uses React for its compo
 Utensil uses Postgres as a database backend. Postgres is stable, open source, and has a number of useful features that build on the SQL standard.
 
 ### [Docker](https://www.docker.com/what-docker)
-In production, Utensil runs inside a stack of linked Docker containers. Docker makes it easy to package software in a lightweight and portable way, which helps streamline Utensil's continuous integration/deployment pipeline. Read more about the CI/CD for this project in [the deployment docs](./DEPLOYMENT.md).
+In production, Utensil runs inside a stack of linked Docker containers. Docker makes it easy to package software in a lightweight and portable way, which helps streamline Utensil's continuous integration/deployment pipeline. Read more about the CI/CD for this project in [the deployment docs](./INFRASTRUCTURE.md).
