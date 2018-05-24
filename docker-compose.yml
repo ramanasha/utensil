@@ -6,6 +6,8 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
     env_file: secrets/db_variables.env
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
   api:
     image: sam4core/utensil-api
     ports:
